@@ -24,10 +24,11 @@
                                 placeholder="Code Reservation" value="{{ $reservation->code }}">
                         </div>
                         <div class="mb-2">
-                            <select name="guest_id" id="guest_id" class="form-control">
+                            <select name="guest_id" id="guest_id" class="form-select">
                                 <option value="" hidden>-- Pilih Guest --</option>
-                                <option value="1" {{ $reservation->guest_id == '1' ? 'selected' : '' }}>Ghattan
-                                </option>
+                                @foreach ($guests as $guest)
+                                    <option value="{{ $guest->id }}" {{ $reservation->guest_id == $guest->id ? 'selected' : '' }}>{{ $guest->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="mb-2">

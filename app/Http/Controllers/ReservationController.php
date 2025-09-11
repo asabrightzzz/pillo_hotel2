@@ -50,7 +50,8 @@ class ReservationController extends Controller
     */
     public function edit(Reservation $reservation)
     {
-        return view('reservation.edit', compact('reservation'));
+        $guests = Guest::all();
+        return view('reservation.edit', compact('reservation', 'guests'));
     }
 
     /**
@@ -58,10 +59,10 @@ class ReservationController extends Controller
      */
     public function update(Request $request, Reservation $reservation)
     {
-        $reservation->code = $request->code;
-        $reservation->guest_id = $request->guest_id;
-        $reservation->status = $request->status;
-        $reservation->voucher = $request->voucher;
+        $reservation->code      = $request->code;
+        $reservation->guest_id  = $request->guest_id;
+        $reservation->status    = $request->status;
+        $reservation->voucher   = $request->voucher;
         $reservation->update();
 
         return redirect('reservation');
