@@ -21,7 +21,7 @@
     <link
       rel="icon"
       type="image/x-icon"
-      href="assets/vendor/img/favicon/favicon.ico"
+      href="{{ asset('assets/vendor/img/favicon/favicon.ico') }}"
     />
 
     <!-- Fonts -->
@@ -34,38 +34,38 @@
 
     <link
       rel="stylesheet"
-      href="assets/vendor/vendor/fonts/iconify-icons.css"
+      href="{{ asset('assets/vendor/fonts/iconify-icons.css') }}"
     />
 
     <!-- Core CSS -->
-    <!-- build:css assets/vendor/vendor/css/theme.css  -->
+    <!-- build:css assets/vendor/css/theme.css  -->
 
-    <link rel="stylesheet" href="assets/vendor/vendor/css/core.css" />
-    <link rel="stylesheet" href="assets/vendor/css/demo.css" />
+  <link rel="stylesheet" href="{{ asset('assets/vendor/css/core.css') }}" />
+  <link rel="stylesheet" href="{{ asset('assets/vendor/css/demo.css') }}" />
 
     <!-- Vendors CSS -->
 
     <link
       rel="stylesheet"
-      href="assets/vendor/vendor/libs/perfect-scrollbar/perfect-scrollbar.css"
+      href="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}"
     />
 
     <!-- endbuild -->
 
     <link
       rel="stylesheet"
-      href="assets/vendor/vendor/libs/apex-charts/apex-charts.css"
+      href="{{ asset('assets/vendor/libs/apex-charts/apex-charts.css') }}"
     />
 
     <!-- Page CSS -->
 
     <!-- Helpers -->
-    <script src="assets/vendor/vendor/js/helpers.js"></script>
+  <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
 
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
 
-    <script src="assets/vendor/js/config.js"></script>
+  <script src="{{ asset('assets/vendor/js/config.js') }}"></script>
   </head>
 
   <body>
@@ -81,7 +81,7 @@
           <div class="app-brand demo">
             <a href="index.html" class="app-brand-link">
               <span class="app-brand-logo demo">
-                <img src="assets/images.jpeg" alt="Logo Pillo" width="70" />
+                <img src="{{ asset('assets/images.jpeg') }}" alt="Logo Pillo" width="70" />
               </span>
             </a>
 
@@ -208,7 +208,7 @@
                   >
                     <div class="avatar avatar-online">
                       <img
-                        src="assets/vendor/img/avatars/1.png"
+                        src="{{ asset('assets/vendor/img/avatars/1.png') }}"
                         alt
                         class="w-px-40 h-auto rounded-circle"
                       />
@@ -221,7 +221,7 @@
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
                               <img
-                                src="assets/vendor/img/avatars/1.png"
+                                src="{{ asset('assets/vendor/img/avatars/1.png') }}"
                                 alt
                                 class="w-px-40 h-auto rounded-circle"
                               />
@@ -324,26 +324,26 @@
 
     <!-- Core JS -->
 
-    <script src="assets/vendor/vendor/libs/jquery/jquery.js"></script>
+  <script src="{{ asset('assets/vendor/libs/jquery/jquery.js') }}"></script>
 
-    <script src="assets/vendor/vendor/libs/popper/popper.js"></script>
-    <script src="assets/vendor/vendor/js/bootstrap.js"></script>
+  <script src="{{ asset('assets/vendor/libs/popper/popper.js') }}"></script>
+  <script src="{{ asset('assets/vendor/js/bootstrap.js') }}"></script>
 
-    <script src="assets/vendor/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+  <script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
 
-    <script src="assets/vendor/vendor/js/menu.js"></script>
+  <script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
 
-    <!-- endbuild -->
+  <!-- endbuild -->
 
-    <!-- Vendors JS -->
-    <script src="assets/vendor/vendor/libs/apex-charts/apexcharts.js"></script>
+  <!-- Vendors JS -->
+  <script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
 
-    <!-- Main JS -->
+  <!-- Main JS -->
 
-    <script src="assets/vendor/js/main.js"></script>
+  <script src="{{ asset('assets/vendor/js/main.js') }}"></script>
 
-    <!-- Page JS -->
-    <script src="assets/vendor/js/dashboards-analytics.js"></script>
+  <!-- Page JS -->
+  <script src="{{ asset('assets/vendor/js/dashboards-analytics.js') }}"></script>
 
     <!-- Place this tag before closing body tag for github widget button. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
