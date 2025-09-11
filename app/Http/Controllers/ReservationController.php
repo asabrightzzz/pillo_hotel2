@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reservation;
+use App\Models\Guest;
 use Illuminate\Http\Request;
 
 class ReservationController extends Controller
@@ -12,8 +13,11 @@ class ReservationController extends Controller
      */
     public function index()
     {
+        // Variabel Guests berisikan Model Guest yang diperintahkan untuk mengambil semua data pada tabel guest
+        $guests = Guest::all();
         $reservations = Reservation::all();
-        return view('reservation.index', compact('reservations'));
+        // $reservations = Reservation::where('guest_id', 1)->get();
+        return view('reservation.index', compact('guests', 'reservations'));
     }
     
     /**
@@ -47,7 +51,6 @@ class ReservationController extends Controller
     public function edit(Reservation $reservation)
     {
         return view('reservation.edit', compact('reservation'));
-        //
     }
 
     /**
