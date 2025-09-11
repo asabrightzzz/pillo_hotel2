@@ -12,10 +12,6 @@ Route::get('/', function () {
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('guest');
-});
+Route::view('/guest', 'guest');
 
-Route::get('/employees', function () {
-    return view('employees');
-});
+Route::view('/employees' , 'employees');
