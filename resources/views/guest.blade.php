@@ -1,9 +1,7 @@
 @extends('layout')
 
 @section('content')
-<<<<<<< HEAD
     <div class="col-xxl- mb-6 order-0">
-=======
     <div class="col-xxl-12 mb-6 order-0">
 >>>>>>> 859df871e2e56d579dc97c25ca34dcf55b3fd52d
         <div class="card">
