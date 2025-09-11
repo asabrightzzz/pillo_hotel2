@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <div class="col-xxl-8 mb-6 order-0">
+    <div class="col-xxl- mb-6 order-0">
         <div class="card">
             <div class="d-flex align-items-start row">
                 <div class="col-sm-7">
