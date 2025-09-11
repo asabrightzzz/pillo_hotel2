@@ -66,9 +66,13 @@
                                     <td>{{ $rsv->guest->name }}</td>
                                     <td>{{ $rsv->status }}</td>
                                     <td>{{ $rsv->voucher }}</td>
-                                    <td>
+                                    <td class="d-flex">
                                         <a href="/reservation/{{$rsv->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
-                                        <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                        &nbsp;<form action="/reservation/{{$rsv->id}}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach
