@@ -1,13 +1,13 @@
 @extends('layout')
 
 @section('content')
-    <div class="col-xxl-8 mb-6 order-0">
+    <div class="col-xxl-12 mb-6 order-0">
         <div class="card">
             <div class="d-flex align-items-start row">
                 <div class="col-sm-7">
                     <div class="card-body">
-                        <h5 class="card-title text-primary mb-3">Congratulations Ghattan! 🎉</h5>
-                        <p class="mb-6">
+                        <h5 class="card-title text-primary mb-3">Welcome, Asri Maharani! 🎉</h5>
+                        <p class="mb-6"> 
                         </p>
 
                         <a href="javascript:;" class="btn btn-sm btn-outline-primary">View Badges</a>
