@@ -1,1 +1,5 @@
-@sections('')
+@extends('layout')
+
+@sections('content')
+
+@ebdsecions
