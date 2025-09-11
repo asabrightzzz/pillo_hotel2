@@ -6,10 +6,6 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('guest');
-});
+Route::view('/', 'guest');
 
-Route::get('/employees', function () {
-    return view('employees');
-});
+Route::view('/employees' , 'employees');
