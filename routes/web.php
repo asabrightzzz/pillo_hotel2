@@ -6,6 +6,6 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::view('/', 'guest');
+Route::view('/guest', 'guest');
 
 Route::view('/employees' , 'employees');
