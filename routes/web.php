@@ -9,3 +9,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('guest');
 });
+
+Route::get('/employees', function () {
+    return view('employees');
+});
