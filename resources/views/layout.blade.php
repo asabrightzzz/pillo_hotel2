@@ -58,12 +58,12 @@
             <!-- Menu -->
 
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-                <div class="app-brand demo">
+                <div class="app-brand demo pt-2">
                     <a href="index.html" class="app-brand-link">
                         <span class="app-brand-logo demo">
                             <img src="{{ asset('assets/img/logo/images.jpeg') }}" alt="Logo Pillo" width="70" />
                         </span>
-                        <span class="app-brand-text demo menu-text fw-bold ms-2">Sneat</span>
+                        <span class="app-brand-text demo menu-text fw-bold ms-2">Pillo Hotel</span>
                     </a>
 
                     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -136,6 +136,12 @@
                             target="_blank" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-envelope"></i>
                             <div class="text-truncate" data-i18n="Email">Email</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/reservation" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-book-alt"></i>
+                            <div class="text-truncate" data-i18n="Reservation">Reservation</div>
                         </a>
                     </li>
                 </ul>
