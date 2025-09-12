@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ReservationController;
 use App\Models\Reservation;
+use App\Http\Controllers\Admin\FacilitiesController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'layout')->name('home');
@@ -13,7 +14,12 @@ Route::view('/', 'layout')->name('home');
 Route::view('/guest', 'guest');
 
 Route::view('/employees' , 'employees');
-Route::view('/facility' , 'facility');
+Route::view('/facility', 'facility.facility');
+
+
+// Route::prefix('admin')->group(function () {
+//   Route::resource('facilities', FacilitiesController::class);
+// });
 
 // Satu Kesatuan dari semua method untuk kebutuhan CRUD
 Route::resource('/reservation', ReservationController::class);

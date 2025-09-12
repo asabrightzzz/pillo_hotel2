@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Facilities;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Facility;
 
 class FacilitiesController extends Controller
 {
@@ -12,7 +13,8 @@ class FacilitiesController extends Controller
      */
     public function index()
     {
-        //
+     $facilities = Facility::all();
+        return view('admin.facilities.index', compact('facilities'));
     }
 
     /**
@@ -20,7 +22,7 @@ class FacilitiesController extends Controller
      */
     public function create()
     {
-        //
+     return view('admin.facilities.create');
     }
 
     /**
@@ -28,7 +30,14 @@ class FacilitiesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+     $request->validate([
+            'name' => 'required',
+            'type' => 'required|in:room,public',
+            'stock' => 'nullable|integer',
+        ]);
+
+        Facility::create($request->all());
+        return redirect()->route('facilities.index')->with('success', 'Fasilitas ditambahkan.');
     }
 
     /**
@@ -44,7 +53,7 @@ class FacilitiesController extends Controller
      */
     public function edit(Facilities $facilities)
     {
-        //
+    return view('admin.facilities.edit', compact('facility'));
     }
 
     /**
@@ -52,7 +61,14 @@ class FacilitiesController extends Controller
      */
     public function update(Request $request, Facilities $facilities)
     {
-        //
+     $request->validate([
+            'name' => 'required',
+            'type' => 'required|in:room,public',
+            'stock' => 'nullable|integer',
+        ]);
+
+        $facility->update($request->all());
+        return redirect()->route('facilities.index')->with('success', 'Fasilitas diperbarui.');
     }
 
     /**
@@ -60,6 +76,7 @@ class FacilitiesController extends Controller
      */
     public function destroy(Facilities $facilities)
     {
-        //
+     $facility->delete();
+        return redirect()->route('facilities.index')->with('success', 'Fasilitas dihapus.');
     }
 }
