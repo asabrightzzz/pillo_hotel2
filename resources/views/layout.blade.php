@@ -63,10 +63,7 @@
                         <span class="app-brand-logo demo">
                             <img src="{{ asset('assets/img/logo/images.jpeg') }}" alt="Logo Pillo" width="70" />
                         </span>
-<<<<<<< HEAD
-=======
                         <span class="app-brand-text demo menu-text fw-bold ms-2">Pillo Hotel</span>
->>>>>>> 899c7f8ff5295dc163e9e891b04313a6bcd4c3ea
                     </a>
 
                     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">

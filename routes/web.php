@@ -16,11 +16,6 @@ Route::view('/guest', 'guest');
 Route::view('/employees' , 'employees');
 Route::view('/facility', 'facility.facility');
 
-
-// Route::prefix('admin')->group(function () {
-//   Route::resource('facilities', FacilitiesController::class);
-// });
-
 // Satu Kesatuan dari semua method untuk kebutuhan CRUD
 Route::resource('/reservation', ReservationController::class);
 

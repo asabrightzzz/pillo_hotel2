@@ -13,7 +13,7 @@ class FacilitiesController extends Controller
      */
     public function index()
     {
-     $facilities = Facility::all();
+        $facilities = Facility::all();
         return view('admin.facilities.index', compact('facilities'));
     }
 
@@ -22,7 +22,7 @@ class FacilitiesController extends Controller
      */
     public function create()
     {
-     return view('admin.facilities.create');
+        return view('admin.facilities.create');
     }
 
     /**
@@ -30,53 +30,47 @@ class FacilitiesController extends Controller
      */
     public function store(Request $request)
     {
-     $request->validate([
-            'name' => 'required',
+        $request->validate([
+            'name' => 'required|string|max:255',
             'type' => 'required|in:room,public',
             'stock' => 'nullable|integer',
+            'description' => 'nullable|string'
         ]);
 
         Facility::create($request->all());
-        return redirect()->route('facilities.index')->with('success', 'Fasilitas ditambahkan.');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Facilities $facilities)
-    {
-        //
+        return redirect()->route('facilities.index')->with('success', 'Fasilitas berhasil ditambahkan.');
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Facilities $facilities)
+    public function edit(Facility $facility)
     {
-    return view('admin.facilities.edit', compact('facility'));
+        return view('admin.facilities.edit', compact('facility'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Facilities $facilities)
+    public function update(Request $request, Facility $facility)
     {
-     $request->validate([
-            'name' => 'required',
+        $request->validate([
+            'name' => 'required|string|max:255',
             'type' => 'required|in:room,public',
             'stock' => 'nullable|integer',
+            'description' => 'nullable|string'
         ]);
 
         $facility->update($request->all());
-        return redirect()->route('facilities.index')->with('success', 'Fasilitas diperbarui.');
+        return redirect()->route('facilities.index')->with('success', 'Fasilitas berhasil diperbarui.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Facilities $facilities)
+    public function destroy(Facility $facility)
     {
-     $facility->delete();
-        return redirect()->route('facilities.index')->with('success', 'Fasilitas dihapus.');
+        $facility->delete();
+        return redirect()->route('facilities.index')->with('success', 'Fasilitas berhasil dihapus.');
     }
 }
