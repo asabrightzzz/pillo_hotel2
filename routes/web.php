@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ReservationController;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Route;
@@ -12,7 +13,8 @@ Route::view('/', 'layout')->name('home');
 
 Route::view('/guest', 'guest');
 
-Route::view('/employees' , 'employees');
+Route::resource('/employee', EmployeeController::class);
+
 Route::view('/facility' , 'facility');
 
 // Satu Kesatuan dari semua method untuk kebutuhan CRUD
