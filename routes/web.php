@@ -4,6 +4,7 @@ use App\Http\Controllers\ReservationController;
 use App\Models\Reservation;
 use App\Http\Controllers\Admin\FacilitiesController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Guest;
 
 Route::view('/', 'layout')->name('home');
 
