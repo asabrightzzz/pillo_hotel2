@@ -42,7 +42,6 @@ class EmployeeController extends Controller
         'name' => $request->name,
         'phone' => $request->phone,
         'email' => $request->email,
-        'password' => bcrypt($request->password),
         'gender' => $request->gender
     ]);
 

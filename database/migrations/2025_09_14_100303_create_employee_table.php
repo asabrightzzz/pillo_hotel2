@@ -11,20 +11,23 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('employees', function (Blueprint $table) {
-            // Ubah kolom gender jadi enum dengan opsi Male/Female
-            $table->enum('gender', ['Male', 'Female'])->nullable()->change();
+    Schema::create('employee', function (Blueprint $table) {
+            $table->id();
+            $table->integer('name');
+            $table->integer('phone');
+            $table->integer('email');
+            $table->enum('gender', ['Male', 'Female']);
+            $table->integer('password');
+            $table->timestamps();
         });
     }
+    
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::table('employees', function (Blueprint $table) {
-            // Balikin ke string panjang 10 misalnya (sesuai sebelumnya)
-            $table->string('gender', 10)->nullable()->change();
-        });
+        Schema::dropIfExists('reservation_rooms');
     }
 };
