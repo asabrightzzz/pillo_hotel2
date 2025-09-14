@@ -17,9 +17,9 @@ Route::view('/guest', 'guest');
 
 Route::resource('/employee', EmployeeController::class);
 
-Route::view('/facility' , 'facility');
 Route::view('/employees' , 'employees');
 Route::view('/facility', 'facility.facility');
+
 
 // Satu Kesatuan dari semua method untuk kebutuhan CRUD
 Route::resource('/reservation', ReservationController::class);
