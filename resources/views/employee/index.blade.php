@@ -57,30 +57,32 @@
               <hr>
 
     <h5 class="mt-4">List Of Employee</h5>
-      <table class="table table-responsive d-flex">
-          <thead>
+<div class="table-responsive">
+  <table class="table table-bordered w-100 mb-0">
+      <thead>
+          <tr>
+              <th>ID</th>
+              <th>Nama</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Password</th>
+              <th>Gender</th>
+          </tr>
+      </thead>
+      <tbody>
+          @foreach($employee as $emp)
               <tr>
-                  <th>ID</th>
-                  <th>Nama</th>
-                  <th>Phone</th>
-                  <th>Email</th>
-                  <th>Password</th>
-                  <th>Gender</th>
+                  <td>{{ $emp->id }}</td>
+                  <td>{{ $emp->name }}</td>
+                  <td>{{ $emp->phone }}</td>
+                  <td>{{ $emp->email }}</td>
+                  <td>{{ $emp->password }}</td>
+                  <td>{{ $emp->gender }}</td>
               </tr>
-          </thead>
-          <tbody>
-              @foreach($employee as $emp)
-                  <tr>
-                      <td>{{ $emp->id }}</td>
-                      <td>{{ $emp->name }}</td>
-                      <td>{{ $emp->phone }}</td>
-                      <td>{{ $emp->email }}</td>
-                      <td>{{ $emp->password }}</td>
-                      <td>{{ $emp->gender }}</td>
-                  </tr>
-              @endforeach
-          </tbody>
-      </table>
+          @endforeach
+      </tbody>
+  </table>
+</div>
 
 
                       
