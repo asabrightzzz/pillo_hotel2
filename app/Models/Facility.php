@@ -6,7 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Facility extends Model
 {
-    protected $fillable = ['name', 'type', 'stock', 'description'];
+    protected $fillable = [
+        'name', 
+        'type', 
+        'stock', 
+        'description'
+    ];
 
     public function roomCategories()
     {
