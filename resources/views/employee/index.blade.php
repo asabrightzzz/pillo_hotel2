@@ -65,7 +65,6 @@
           <th>Nama</th>
           <th>Phone</th>
           <th>Email</th>
-          <th>Password</th>
           <th>Gender</th>
         </tr>
       </thead>
@@ -76,7 +75,6 @@
           <td>{{ $emp->name }}</td>
           <td>{{ $emp->phone }}</td>
           <td>{{ $emp->email }}</td>
-          <td>{{ $emp->password }}</td>
           <td>{{ $emp->gender }}</td>
         </tr>
         @endforeach
