@@ -144,6 +144,18 @@
                             <div class="text-truncate" data-i18n="Reservation">Reservation</div>
                         </a>
                     </li>
+                    <li class="menu-item">
+                        <a href="/employee" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-book-alt"></i>
+                            <div class="text-truncate" data-i18n="employee">Employee</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/guest" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-book-alt"></i>
+                            <div class="text-truncate" data-i18n="guest">Guest</div>
+                        </a>
+                    </li>
                 </ul>
             </aside>
             <!-- / Menu -->
