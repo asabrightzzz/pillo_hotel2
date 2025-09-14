@@ -42,7 +42,7 @@ class EmployeeController extends Controller
         'name' => $request->name,
         'phone' => $request->phone,
         'email' => $request->email,
-        'password' => bcrypt($request->password), // jangan plain text ya
+        'password' => bcrypt($request->password),
         'gender' => $request->gender
     ]);
 
@@ -70,14 +70,7 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
-        $employee->name      = $request->code;
-        $employee->phone  = $request->guest_id;
-        $employee->email    = $request->status;
-        $employee->password   = $request->voucher;
-        $employee->password   = $request->voucher;
-        $employee->update();
-
-        return redirect('employee');
+      
     }
 
     /**
@@ -85,9 +78,6 @@ class EmployeeController extends Controller
      */
     public function destroy(Employee $employee)
     {
-        $employee->delete();
-
-        return redirect()->route('employee.index')
-        ->with('success', 'Employee berhasil dihapus');
+        
     }
 }
