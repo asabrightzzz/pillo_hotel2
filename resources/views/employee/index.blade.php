@@ -7,7 +7,7 @@
                       <h5 class="mb-0">Employee</h5>
                     </div>
                     <div class="card-body">
-                      <form action="{{ route('employee.store') }}" method="POST">
+                      <form action="/employee" method="post">
                         @csrf
                         <div class="mb-3">
                           <label class="form-label" for="basic-icon-default-fullname">Full Name</label>
@@ -57,7 +57,7 @@
               <hr>
 
     <h5 class="mt-4">List Of Employee</h5>
-      <table class="table table-bordered">
+      <table class="table table-responsive d-flex">
           <thead>
               <tr>
                   <th>ID</th>
