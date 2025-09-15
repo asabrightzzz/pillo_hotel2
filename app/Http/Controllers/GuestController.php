@@ -13,7 +13,7 @@ class GuestController extends Controller
     public function index()
     {
     $guests = Guest::all();
-    return view('guest.index', compact('guest'));
+    return view('guest.index', compact('guests'));
     }
 
     /**

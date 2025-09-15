@@ -76,7 +76,7 @@
         </div>
       </form>
       <div class="card mb-4">
-          <h5 class="m-5">List Of Employee</h5>
+          <h5 class="m-5 text-end">Guest Data</h5>
           <div class="table-responsive">
             <table class="table table-bordered w-100 mb-0">
               <thead>
@@ -89,17 +89,17 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach($employee as $emp)
+                @foreach($guests as $gst)
                 <tr>
-                  <td>{{ $emp->id }}</td>
-                  <td>{{ $emp->name }}</td>
-                  <td>{{ $emp->phone }}</td>
-                  <td>{{ $emp->email }}</td>
-                  <td>{{ $emp->gender }}</td>
+                  <td>{{ $gst->id }}</td>
+                  <td>{{ $gst->name }}</td>
+                  <td>{{ $gst->phone }}</td>
+                  <td>{{ $gst->email }}</td>
+                  <td>{{ $gst->gender }}</td>
                 <td class="d-flex">
-                  <a href="/employee/{{ $emp->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+                  <a href="/guest/{{ $gst->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
                   &nbsp;
-                  <form action="/employee/{{ $emp->id }}" method="post">
+                  <form action="/guest/{{ $gst->id }}" method="post">
                   @csrf
                   @method('delete')
                   <button type="submit" class="btn btn-danger btn-sm">Delete</button>
