@@ -18,8 +18,18 @@ Route::view('/guest', 'guest');
 
 Route::resource('/employee', EmployeeController::class);
 
+<<<<<<< HEAD
 Route::view('/facility' , 'facility');
 Route::view('/facility', 'facility.facility');
+=======
+Route::view('/employees' , 'employees');
+
+// Kelompok rute fasilitas
+Route::prefix('manage')->name('manage.')->group(function () {
+    Route::resource(' facilities', FacilitiesController::class);
+     Route::view('/static-facility', 'facilities.facility')->name('static-facility');
+});
+>>>>>>> 2af6796b127961c34e5e2a20477319b612ae17f9
 
 // Satu Kesatuan dari semua method untuk kebutuhan CRUD
 Route::resource('/reservation', ReservationController::class);
