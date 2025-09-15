@@ -75,35 +75,44 @@
           </div>
         </div>
       </form>
-      <div class="col-lg-12">
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-sm rounded-3">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Full Name</th>
-                                    <th>Phone No</th>
-                                    <th>Email</th>
-                                    <th>ID Number</th>
-                                    <th>ID Photo</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>                      
-                              <tr>
-                                <td>1</td>
-                                <td>Iman</td>
-                                <td>0838...</td>
-                                <td>rehanzulhilmibudiman@gmail.com</td>
-                                <td>320987</td>
-                                <td>click here...</td>
-                                <td>click here...</td>
-                              </tr>
-                             
-                            </tbody>
-                        </table>
-                    </div>
-      </div>
+      <div class="card mb-4">
+          <h5 class="m-5">List Of Employee</h5>
+          <div class="table-responsive">
+            <table class="table table-bordered w-100 mb-0">
+              <thead>
+                <tr>
+                  <th>Full Name</th>
+                  <th>Phone No</th>
+                  <th>Email</th>
+                  <th>ID Number</th>
+                  <th>ID Photo</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach($employee as $emp)
+                <tr>
+                  <td>{{ $emp->id }}</td>
+                  <td>{{ $emp->name }}</td>
+                  <td>{{ $emp->phone }}</td>
+                  <td>{{ $emp->email }}</td>
+                  <td>{{ $emp->gender }}</td>
+                <td class="d-flex">
+                  <a href="/employee/{{ $emp->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+                  &nbsp;
+                  <form action="/employee/{{ $emp->id }}" method="post">
+                  @csrf
+                  @method('delete')
+                  <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                  </form>
+                  </td>
+                  </tr>        
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+                    
 
       
 @endsection
