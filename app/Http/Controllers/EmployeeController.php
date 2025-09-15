@@ -29,23 +29,9 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'phone' => 'required|string|max:20',
-        'email' => 'required|email|unique:employees,email',
-        'password' => 'required|string|min:6',
-        'gender' => 'nullable|string'
-    ]);
+        Employee::create($request->all());
+        return back();
 
-    // simpan data
-    Employee::create([
-        'name' => $request->name,
-        'phone' => $request->phone,
-        'email' => $request->email,
-        'gender' => $request->gender
-    ]);
-
-    return redirect()->route('employee.index')->with('success', 'Employee added successfully!');      
     }
 
     /**
@@ -61,7 +47,7 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
-        return view('employees.edit', compact('employee'));
+        return view('employee.edit', compact('employee'));
     }
 
     /**
