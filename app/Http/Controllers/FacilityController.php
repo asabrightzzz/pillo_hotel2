@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Facility;
 use Illuminate\Support\Str;
 
-class FacilitiesController extends Controller
+class FacilityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class FacilitiesController extends Controller
     public function index()
     {
         $facilities = Facility::all();
-        return view('facilities.facility', compact('facilities'));
+        return view('facilities.index', compact('facilities'));
     }
 
     /**
@@ -39,7 +39,8 @@ class FacilitiesController extends Controller
         ]);
 
         Facility::create($validatedData);
-        return redirect()->route('manage.facilities.facility')->with('success', 'Fasilitas berhasil ditambahkan.');
+        // Correcting the redirect route name
+        return redirect()->route('app.facility.index')->with('success', 'Fasilitas berhasil ditambahkan.');
     }
 
     /**
@@ -63,7 +64,8 @@ class FacilitiesController extends Controller
         ]);
 
         $facility->update($validatedData);
-        return redirect()->route('manage.facilities.facility')->with('success', 'Fasilitas berhasil diperbarui.');
+        // Correcting the redirect route name
+        return redirect()->route('app.facility.index')->with('success', 'Fasilitas berhasil diperbarui.');
     }
 
     /**
@@ -72,6 +74,7 @@ class FacilitiesController extends Controller
     public function destroy(Facility $facility)
     {
         $facility->delete();
-        return redirect()->route('manage.facilities.facility')->with('success', 'Fasilitas berhasil dihapus.');
+        // Correcting the redirect route name
+        return redirect()->route('app.facility.index')->with('success', 'Fasilitas berhasil dihapus.');
     }
 }

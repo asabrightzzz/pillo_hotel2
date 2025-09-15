@@ -166,7 +166,7 @@
 
             <!-- Layout container -->
             <div class="layout-page">
-
+                
                     <div class="navbar-nav-right d-flex align-items-center justify-content-end" id="navbar-collapse">
                         
                         <ul class="navbar-nav flex-row align-items-center ms-md-auto">
