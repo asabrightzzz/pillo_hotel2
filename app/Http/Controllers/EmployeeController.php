@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\employees;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 
-class EmployeesController extends Controller
+class EmployeeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+    $employee = Employee::all();
+    return view('employee.index', compact('employee'));
     }
 
     /**
@@ -20,7 +21,7 @@ class EmployeesController extends Controller
      */
     public function create()
     {
-        //
+        return view('employee.create');
     }
 
     /**
@@ -28,13 +29,15 @@ class EmployeesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Employee::create($request->all());
+        return back();
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(employees $employees)
+    public function show(Employee $employee)
     {
         //
     }
@@ -42,24 +45,24 @@ class EmployeesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(employees $employees)
+    public function edit(Employee $employee)
     {
-        //
+        return view('employee.edit', compact('employee'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, employees $employees)
+    public function update(Request $request, Employee $employee)
     {
-        //
+      
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(employees $employees)
+    public function destroy(Employee $employee)
     {
-        //
+        
     }
 }
