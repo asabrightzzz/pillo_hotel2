@@ -3,9 +3,11 @@
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ReservationController;
 use App\Models\Reservation;
+use App\Models\Employee;
 use App\Http\Controllers\Admin\FacilitiesController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Guest;
+use App\Http\Controllers\GuestController;
 
 Route::view('/', 'layout')->name('home');
 
@@ -17,12 +19,14 @@ Route::view('/guest', 'guest');
 
 Route::resource('/employee', EmployeeController::class);
 
+Route::view('/facility' , 'facility');
+Route::view('/facility', 'facility.facility');
 Route::view('/employees' , 'employees');
 
 // Kelompok rute fasilitas
 Route::prefix('manage')->name('manage.')->group(function () {
-    Route::resource(' facilities', FacilitiesController::class);
-     Route::view('/static-facility', 'facilities.facility')->name('static-facility');
+Route::resource(' facilities', FacilitiesController::class);
+Route::view('/static-facility', 'facilities.facility')->name('static-facility');
 });
 
 // Satu Kesatuan dari semua method untuk kebutuhan CRUD

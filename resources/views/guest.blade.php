@@ -75,5 +75,35 @@
           </div>
         </div>
       </form>
+      <div class="col-lg-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-sm rounded-3">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Full Name</th>
+                                    <th>Phone No</th>
+                                    <th>Email</th>
+                                    <th>ID Number</th>
+                                    <th>ID Photo</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>                      
+                              <tr>
+                                <td>1</td>
+                                <td>Iman</td>
+                                <td>0838...</td>
+                                <td>rehanzulhilmibudiman@gmail.com</td>
+                                <td>320987</td>
+                                <td>click here...</td>
+                                <td>click here...</td>
+                              </tr>
+                             
+                            </tbody>
+                        </table>
+                    </div>
       </div>
+
+      
 @endsection
