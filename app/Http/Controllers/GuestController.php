@@ -46,7 +46,7 @@ class GuestController extends Controller
      */
     public function edit(Guest $guest)
     {
-        //
+         return view('guest.edit', compact('guest'));
     }
 
     /**
