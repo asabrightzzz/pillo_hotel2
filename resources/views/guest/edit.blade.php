@@ -8,6 +8,8 @@
             <div class="card-header">
                 <h5 class="mb-0">Edit Guest Data</h5>
                 <form action="/guest/{{ $guest->id }}" method="POST">
+                  @csrf
+                  @method('PUT')
                     <div class="mb-3">
                 <label class="form-label" for="basic-icon-default-fullname">Name</label>
                 <div class="input-group input-group-merge">

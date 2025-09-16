@@ -96,7 +96,7 @@
                       &nbsp;
                       <form action="/guest/{{ $gst->id }}" method="post">
                         @csrf
-                        @method('delete')
+                        @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                       </div>
                   </form>
