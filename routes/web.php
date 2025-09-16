@@ -18,6 +18,7 @@ use App\Models\Guest;
     Route::resource('reservation', ReservationController::class); 
     Route::view('/', 'layout')->name('home');
     Route::resource('employee', EmployeeController::class);
+    
 });
 
 
