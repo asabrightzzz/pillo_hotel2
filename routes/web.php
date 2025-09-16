@@ -20,13 +20,12 @@ use App\Models\Guest;
     Route::resource('reservation', ReservationController::class); 
     Route::view('/', 'layout')->name('home');
     Route::resource('employee', EmployeeController::class);
-    
+    Route::get('/roomcategories', [RoomCategoriesController::class, 'index']);
+    Route::get('/roomcategories/{roomcategories}/edit', [RoomCategoriesController::class, 'edit']);
+    Route::put('/roomcategories/{roomcategories}', [RoomCategoriesController::class, 'update']);
+    Route::delete('/roomcategories/{roomcategories}', [RoomCategoriesController::class, 'destroy']);
+    Route::post('/roomcategories/{roomcategories}', [RoomCategoriesController::class, 'store']);
 });
 
 
 
-Route::get('/roomcategories', [RoomCategoriesController::class, 'index']);
-Route::get('/roomcategories/{roomcategories}/edit', [RoomCategoriesController::class, 'edit']);
-Route::put('/roomcategories/{roomcategories}', [RoomCategoriesController::class, 'update']);
-Route::delete('/roomcategories/{roomcategories}', [RoomCategoriesController::class, 'destroy']);
-Route::post('/roomcategories/{roomcategories}', [RoomCategoriesController::class, 'store']);
