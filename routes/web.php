@@ -3,12 +3,12 @@
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\RoomCategoryController;
-use App\Models\RoomCategory;
-use App\Models\Reservation;
+use App\Http\Controllers\RoomController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\GuestController;
+use App\Models\RoomCategory;
+use App\Models\Reservation;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RoomController;
 
 Route::prefix('app')->name('app.') ->group(function () {
   // guest
