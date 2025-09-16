@@ -34,12 +34,12 @@ Route::resource('/reservation', ReservationController::class);
 // Store data atau insert data
 // Route::post('/reservation/{reservation}', [ReservationController::class, 'store']);
 
-Route::resource('/room_category', RoomCategoryController::class);
+Route::resource('/roomcategories', RoomCategoriesController::class);
 
 
 
-// Route::get('/roomcategories', [RoomCategoryController::class, 'index']);
-// Route::get('/roomcategories/{roomcategories}/edit', [RoomCategoryController::class, 'edit']);
-// Route::put('/roomcategories/{roomcategories}', [RoomCategoryController::class, 'update']);
-// Route::delete('/roomcategories/{roomcategories}', [RoomCategoryController::class, 'destroy']);
-// Route::post('/roomcategories/{roomcategories}', [RoomCategoryController::class, 'store']);
+Route::get('/roomcategories', [RoomCategoriesController::class, 'index']);
+Route::get('/roomcategories/{roomcategories}/edit', [RoomCategoriesController::class, 'edit']);
+Route::put('/roomcategories/{roomcategories}', [RoomCategoriesController::class, 'update']);
+Route::delete('/roomcategories/{roomcategories}', [RoomCategoriesController::class, 'destroy']);
+Route::post('/roomcategories/{roomcategories}', [RoomCategoriesController::class, 'store']);
