@@ -16,13 +16,18 @@ Route::view('/', 'layout')->name('home');
 //     return view('welcome');
 // });
 
-Route::view('/guest', 'guest');
-
+Route::prefix('app')->name('.app') ->group(function () {
+  // guest
     Route::resource('guest', GuestController::class);
+    // Facility
     Route::resource('facility', FacilityController::class);
+    // Reservation
     Route::resource('reservation', ReservationController::class); 
+    // Room
     Route::resource('room', RoomController::class); 
+    // base
     Route::view('/', 'layout')->name('home');
+    // employee
     Route::resource('employee', EmployeeController::class);
     Route::get('/roomcategories', [RoomCategoryController::class, 'index']);
     Route::get('/roomcategories/{roomcategories}/edit', [RoomCategoryController::class, 'edit']);
@@ -33,6 +38,7 @@ Route::view('/guest', 'guest');
 
 // Satu Kesatuan dari semua method untuk kebutuhan CRUD
 Route::resource('/reservation', ReservationController::class);
+});
 
 // Menampilkan halaman utama
 // Route::get('/reservation', [ReservationController::class, 'index']);
@@ -44,5 +50,3 @@ Route::resource('/reservation', ReservationController::class);
 // Route::delete('/reservation/{reservation}', [ReservationController::class, 'destroy']);
 // Store data atau insert data
 // Route::post('/reservation/{reservation}', [ReservationController::class, 'store']);
-
-Route::resource('/room_category', RoomCategoryController::class);
