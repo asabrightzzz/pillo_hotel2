@@ -7,7 +7,7 @@
                       <h5 class="mb-0">Employee</h5>
                     </div>
                     <div class="card-body">
-                      <form action="/employee" method="post">
+                      <form action="/app/employee" method="post">
                         @csrf
                         <div class="mb-3">
                           <label class="form-label" for="basic-icon-default-fullname">Full Name</label>

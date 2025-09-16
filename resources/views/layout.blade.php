@@ -136,7 +136,7 @@
                         <span class="menu-header-text">Apps &amp; Pages</span>
                     </li>
                     <li class="menu-item">
-                        <a href="/app/facility"
+                        <a href="/facility"
                             target="_blank" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-book-alt"></i>
                             <div class="text-truncate" data-i18n="Facility">Facility</div>
