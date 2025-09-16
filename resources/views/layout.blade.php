@@ -63,7 +63,7 @@
 
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo pt-2">
-                    <a href="{{ route('home') }}" class="app-brand-link">
+                    <a href="{{ route('app.home') }}" class="app-brand-link">
                         <span class="app-brand-logo demo">
                             <img src="{{ asset('assets/img/logo/images.jpeg') }}" alt="Logo Pillo" width="70" />
                         </span>

@@ -10,12 +10,6 @@ use App\Http\Controllers\GuestController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
 
-Route::view('/', 'layout')->name('home');
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::prefix('app')->name('.app') ->group(function () {
   // guest
     Route::resource('guest', GuestController::class);
