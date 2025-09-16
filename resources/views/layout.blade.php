@@ -63,7 +63,7 @@
 
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo pt-2">
-                    <a href="{{ route('home') }}" class="app-brand-link">
+                    <a href="{{ route('app.home') }}" class="app-brand-link">
                         <span class="app-brand-logo demo">
                             <img src="{{ asset('assets/img/logo/images.jpeg') }}" alt="Logo Pillo" width="70" />
                         </span>
@@ -136,26 +136,26 @@
                         <span class="menu-header-text">Apps &amp; Pages</span>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ route('app.facility.index') }}"
+                        <a href="/facility"
                             target="_blank" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-book-alt"></i>
                             <div class="text-truncate" data-i18n="Facility">Facility</div>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ route('app.reservation.index') }}" class="menu-link">
+                        <a href="/reservation" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-book-alt"></i>
                             <div class="text-truncate" data-i18n="Reservation">Reservation</div>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ route('app.employee.index') }}" class="menu-link">
+                        <a href="/employee" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-book-alt"></i>
                             <div class="text-truncate" data-i18n="employee">Employee</div>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ route('app.guest.index') }}" class="menu-link">
+                        <a href="/guest" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-book-alt"></i>
                             <div class="text-truncate" data-i18n="guest">Guest</div>
                         </a>

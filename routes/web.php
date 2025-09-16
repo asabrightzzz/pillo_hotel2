@@ -10,13 +10,7 @@ use App\Models\RoomCategory;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'layout')->name('home');
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::prefix('app')->name('.app') ->group(function () {
+Route::prefix('app')->name('app.') ->group(function () {
   // guest
     Route::resource('guest', GuestController::class);
     // Facility
@@ -29,15 +23,6 @@ Route::prefix('app')->name('.app') ->group(function () {
     Route::view('/', 'layout')->name('home');
     // employee
     Route::resource('employee', EmployeeController::class);
-    Route::get('/roomcategories', [RoomCategoryController::class, 'index']);
-    Route::get('/roomcategories/{roomcategories}/edit', [RoomCategoryController::class, 'edit']);
-    Route::put('/roomcategories/{roomcategories}', [RoomCategoryController::class, 'update']);
-    Route::delete('/roomcategories/{roomcategories}', [RoomCategoryController::class, 'destroy']);
-    Route::post('/roomcategories/{roomcategories}', [RoomCategoryController::class, 'store']);
-
-
-// Satu Kesatuan dari semua method untuk kebutuhan CRUD
-Route::resource('/reservation', ReservationController::class);
 });
 
 // Menampilkan halaman utama
