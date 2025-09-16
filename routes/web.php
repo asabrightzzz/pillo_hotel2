@@ -3,12 +3,12 @@
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\RoomCategoryController;
-use App\Models\RoomCategory;
-use App\Models\Reservation;
+use App\Http\Controllers\RoomController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\GuestController;
+use App\Models\RoomCategory;
+use App\Models\Reservation;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RoomController;
 
 Route::view('/', 'layout')->name('home');
 
@@ -24,21 +24,12 @@ Route::view('/guest', 'guest');
     Route::resource('room', RoomController::class); 
     Route::view('/', 'layout')->name('home');
     Route::resource('employee', EmployeeController::class);
-<<<<<<< HEAD
-    Route::get('/roomcategories', [RoomCategoriesController::class, 'index']);
-    Route::get('/roomcategories/{roomcategories}/edit', [RoomCategoriesController::class, 'edit']);
-    Route::put('/roomcategories/{roomcategories}', [RoomCategoriesController::class, 'update']);
-    Route::delete('/roomcategories/{roomcategories}', [RoomCategoriesController::class, 'destroy']);
-    Route::post('/roomcategories/{roomcategories}', [RoomCategoriesController::class, 'store']);
-});
-=======
     Route::get('/roomcategories', [RoomCategoryController::class, 'index']);
     Route::get('/roomcategories/{roomcategories}/edit', [RoomCategoryController::class, 'edit']);
     Route::put('/roomcategories/{roomcategories}', [RoomCategoryController::class, 'update']);
     Route::delete('/roomcategories/{roomcategories}', [RoomCategoryController::class, 'destroy']);
     Route::post('/roomcategories/{roomcategories}', [RoomCategoryController::class, 'store']);
 
->>>>>>> abdbec962b308ae36c34a6b80e5b57be5662485e
 
 // Satu Kesatuan dari semua method untuk kebutuhan CRUD
 Route::resource('/reservation', ReservationController::class);
