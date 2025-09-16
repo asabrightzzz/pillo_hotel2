@@ -15,7 +15,7 @@ class Facility extends Model
 
     public function roomCategories()
     {
-        return $this->belongsToMany(RoomCategory::class, 'room_category_facilities')->withPivot('qty')->withTimestamps();
+        return $this->belongsToMany(roomCategories::class, 'room_category_facility')->withPivot('qty')->withTimestamps();
     }
 
     public function scopeRoom($query)
