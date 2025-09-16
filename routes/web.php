@@ -11,13 +11,14 @@ use App\Models\Guest;
 
 
 // fasilitas
+  Route::prefix('app')->name('app.')->group(function() {
 
     Route::resource('guest', GuestController::class);
     Route::resource('facility', FacilityController::class);
     Route::resource('reservation', ReservationController::class); 
     Route::view('/', 'layout')->name('home');
     Route::resource('employee', EmployeeController::class);
-
+});
 
 
 
