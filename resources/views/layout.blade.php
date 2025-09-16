@@ -97,10 +97,10 @@
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href=""
-                                    target="_blank" class="menu-link">
-                                    <div class="text-truncate" data-i18n="CRM">CRM</div>
-
+                                <a href="{{ route('reservation.index') }}" class="menu-link">
+                                    <div class="text-truncate" data-i18n="Reservations">
+                                        Reservations
+                                    </div>
                                 </a>
                             </li>
                             <li class="menu-item">
