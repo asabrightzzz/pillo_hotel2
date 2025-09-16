@@ -6,8 +6,6 @@
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h3 class="fw-bold text-gray-800">Facilities Management</h3>
-
-                {{-- Corrected the 'Add' button route --}}
                 <a href="{{ route('app.facility.create') }}" class="btn btn-primary shadow-sm">
                     <i class="fas fa-plus me-2"></i>Add
                 </a>

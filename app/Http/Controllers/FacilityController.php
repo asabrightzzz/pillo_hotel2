@@ -39,8 +39,7 @@ class FacilityController extends Controller
         ]);
 
         Facility::create($validatedData);
-        // Correcting the redirect route name
-        return redirect()->route('app.facility.index')->with('success', 'Fasilitas berhasil ditambahkan.');
+        return redirect()->route('app.facilities.index')->with('success', 'Fasilitas berhasil ditambahkan.');
     }
 
     /**
@@ -64,8 +63,7 @@ class FacilityController extends Controller
         ]);
 
         $facility->update($validatedData);
-        // Correcting the redirect route name
-        return redirect()->route('app.facility.index')->with('success', 'Fasilitas berhasil diperbarui.');
+        return redirect()->route('app.facilities.index')->with('success', 'Fasilitas berhasil diperbarui.');
     }
 
     /**
@@ -75,6 +73,6 @@ class FacilityController extends Controller
     {
         $facility->delete();
         // Correcting the redirect route name
-        return redirect()->route('app.facility.index')->with('success', 'Fasilitas berhasil dihapus.');
+        return redirect()->route('app.facilities.index')->with('success', 'Fasilitas berhasil dihapus.');
     }
 }

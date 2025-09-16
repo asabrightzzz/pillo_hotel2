@@ -2,10 +2,12 @@
 
 @section('content')
 
- <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
+
+
+ {{-- <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl font-bold text-gray-800">Edit Fasilitas</h1>
-            <a href="{{ route('admin.facilities.index') }}" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-4 rounded-lg shadow-sm transition-colors duration-200">
+            <a href="{{ route('app.facility.index') }}" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-4 rounded-lg shadow-sm transition-colors duration-200">
                 <i class="fas fa-arrow-left mr-2"></i>Kembali
             </a>
         </div>
@@ -21,7 +23,7 @@
             </div>
         @endif
 
-        <form action="{{ route('admin.facilities.update', $facility->id) }}" method="POST">
+        <form action="{{ route('app.facility.update', $facility->id) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -52,5 +54,5 @@
                 </button>
             </div>
         </form>
-    </div>
+    </div> --}}
 @endsection
