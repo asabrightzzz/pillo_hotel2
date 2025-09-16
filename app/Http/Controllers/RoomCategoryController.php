@@ -77,7 +77,7 @@ class RoomCategoryController extends Controller
        $roomCategory->bed_setup = $request->bed_setup;
        $roomCategory->update();
 
-        return redirect('roomcategories');
+        return redirect('room_category')->with('success', 'Room category updated successfully!');
     }
 
     /**
