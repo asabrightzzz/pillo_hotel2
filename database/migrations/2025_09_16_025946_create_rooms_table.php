@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
-            $table->varchar('name');
-            $table->enum('status');
-            $table->foreignId('room_category_id')->constrained('room_category');
-            $table->varchar('description');
+            $table->string('name');
+            $table->enum('status', ['available', 'occupied', 'maintenance', 'reserved']);
+            $table->foreignId('room_category_id')->constrained('room_categories')->cascadeOnDelete();
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
