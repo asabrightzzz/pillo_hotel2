@@ -32,8 +32,8 @@
                 <div>
                     <label for="type" class="block text-sm font-medium text-gray-700 mb-1">Tipe Fasilitas</label>
                     <select name="type" id="type" required class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-200">
-                        <option value="room" @if($facility->type === 'room') selected @endif>Fasilitas Kamar</option>
-                        <option value="public" @if($facility->type === 'public') selected @endif>Fasilitas Umum</option>
+                        <option value="room" @if(old('type', $facility->type) === 'room') selected @endif>Fasilitas Kamar</option>
+                        <option value="public" @if(old('type', $facility->type) === 'public') selected @endif>Fasilitas Umum</option>
                     </select>
                 </div>
                 <div>
@@ -53,4 +53,4 @@
             </div>
         </form>
     </div>
-@sectionend
+@endsection

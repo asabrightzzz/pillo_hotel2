@@ -26,23 +26,23 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nama Fasilitas</label>
-                    <input type="text" name="name" id="name" required class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-200">
+                    <input type="text" name="name" id="name" value="{{ old('name') }}" required class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-200">
                 </div>
                 <div>
                     <label for="type" class="block text-sm font-medium text-gray-700 mb-1">Tipe Fasilitas</label>
                     <select name="type" id="type" required class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-200">
-                        <option value="room">Fasilitas Kamar</option>
-                        <option value="public">Fasilitas Umum</option>
+                        <option value="room" @if(old('type') === 'room') selected @endif>Fasilitas Kamar</option>
+                        <option value="public" @if(old('type') === 'public') selected @endif>Fasilitas Umum</option>
                     </select>
                 </div>
                 <div>
                     <label for="stock" class="block text-sm font-medium text-gray-700 mb-1">Stok</label>
-                    <input type="number" name="stock" id="stock" class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-200">
+                    <input type="number" name="stock" id="stock" value="{{ old('stock') }}" class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-200">
                 </div>
             </div>
             <div class="mt-6">
                 <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Deskripsi</label>
-                <textarea name="description" id="description" rows="4" class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-200"></textarea>
+                <textarea name="description" id="description" rows="4" class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-200">{{ old('description') }}</textarea>
             </div>
             
             <div class="flex justify-end mt-6">

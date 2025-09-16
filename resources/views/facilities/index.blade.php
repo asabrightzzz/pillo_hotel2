@@ -6,7 +6,9 @@
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h3 class="fw-bold text-gray-800">Facilities Management</h3>
-                <a href="" class="btn btn-primary shadow-sm">
+
+                {{-- Corrected the 'Add' button route --}}
+                <a href="{{ route('app.facility.create') }}" class="btn btn-primary shadow-sm">
                     <i class="fas fa-plus me-2"></i>Add
                 </a>
             </div>
@@ -30,25 +32,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- Menggunakan perulangan @forelse untuk menampilkan data fasilitas --}}
-                        {{-- @forelse ($facilities as $facility) --}}
+                        @forelse ($facilities as $facility)
                             <tr class="align-middle">
-                                <td class="text-start"></td>
+                                <td class="text-start">{{ $facility->name }}</td>
                                 <td class="text-start">
                                     <span class="">
-                                        {{-- {{ $facility->type }} --}}
+                                        <span class="badge {{ $facility->type === 'room' ? 'bg-info' : 'bg-secondary' }}">
+                                            {{ ucwords($facility->type) }}
+                                        </span>
                                     </span>
                                 </td>
-                                <td class="text-start"></td>
-                                <td class="text-start"></td>
+                                <td class="text-start">{{ $facility->stock ?? 'N/A' }}</td>
+                                <td class="text-start">{{ $facility->description ?? 'No Description' }}</td>
                                 <td class="text-center">
                                     <div class="d-flex justify-content-center">
-                                        <a href="" class="btn btn-sm btn-outline-primary me-2" title="Edit">
+                                        {{-- Corrected the 'Edit' button route --}}
+                                        <a href="{{ route('app.facility.edit', $facility->id) }}" class="btn btn-sm btn-outline-primary me-2" title="Edit">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <form action="" method="POST">
-                                            {{-- @csrf
-                                            @method('DELETE') --}}
+                                        {{-- Corrected the 'Delete' form action --}}
+                                        <form action="{{ route('app.facility.destroy', $facility->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this facility?');">
+                                            @csrf
+                                            @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-outline-danger" title="Hapus">
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
@@ -56,13 +61,13 @@
                                     </div>
                                 </td>
                             </tr>
-                        {{-- @empty --}}
+                        @empty
                             <tr>
                                 <td colspan="5" class="text-center text-muted py-5">
                                     No facilities found.
                                 </td>
                             </tr>
-                        {{-- @endforelse --}}
+                        @endforelse
                     </tbody>
                 </table>
             </div>
