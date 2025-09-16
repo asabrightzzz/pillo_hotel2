@@ -55,7 +55,14 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
-      
+        $employee->name         = $request->name;
+        $employee->phone        = $request->phone;
+        $employee->email        = $request->email;
+        $employee->password     = $request->password;
+        $employee->gender       = $request->gender;
+        $employee->update();
+
+        return redirect('employee');
     }
 
     /**
@@ -63,6 +70,8 @@ class EmployeeController extends Controller
      */
     public function destroy(Employee $employee)
     {
-        
+        $employee->delete();
+
+        return back();
     }
 }

@@ -34,43 +34,36 @@
           <div class="card-body">
             <form>
               <div class="mb-3">
-                <label class="form-label" for="basic-icon-default-fullname">Full Name</label>
+                <label class="form-label" for="basic-icon-default-fullname">Name</label>
                 <div class="input-group input-group-merge">
                   <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-                  <input type="text" class="form-control" id="basic-icon-default-fullname" placeholder="Username..." aria-label="Username..." aria-describedby="basic-icon-default-fullname2">
+                  <input type="text" class="form-control" id="basic-icon-default-fullname" placeholder="Username..." aria-label="Username..." aria-describedby="basic-icon-default-fullname2" name="name">
                 </div>
               </div>
               <div class="mb-3">
                 <label class="form-label" for="basic-icon-default-phone">Phone No</label>
                 <div class="input-group input-group-merge">
                   <span id="basic-icon-default-phone2" class="input-group-text"><i class="bx bx-phone"></i></span>
-                  <input type="text" id="basic-icon-default-phone" class="form-control phone-mask" placeholder="658 799 8941" aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2">
+                  <input type="text" id="basic-icon-default-phone" class="form-control phone-mask" placeholder="658 799 8941" aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2"name="phone">
                 </div>
               </div>                        
-              <div class="mb-3">
-                <label class="form-label" for="basic-icon-default-email">Email</label>
-                <div class="input-group input-group-merge">
-                  <span class="input-group-text"><i class="bx bx-envelope"></i></span>
-                  <input type="text" id="basic-icon-default-email" class="form-control" placeholder="john.doe" aria-label="john.doe" aria-describedby="basic-icon-default-email2">
-                  <span id="basic-icon-default-email2" class="input-group-text">@example.com</span>
-                </div>
                 <div class="mb-3">
-                  <label class="form-label" for="basic-icon-default-company">Identity Number</label>
+                  <label class="form-label" for="basic-icon-default-company">ID Number</label>
                   <div class="input-group input-group-merge">
                     <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
-                    <input type="text" id="basic-icon-default-company" class="form-control" placeholder="ID Number..." aria-label="ACME Inc." aria-describedby="basic-icon-default-company2">
+                    <input type="text" id="basic-icon-default-company" class="form-control" placeholder="ID Number..." aria-label="ACME Inc." aria-describedby="basic-icon-default-company2" name="identity_number">
                   </div>
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="basic-icon-default-company">ID Card Photo</label>
                   <div class="input-group input-group-merge">
                     <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
-                    <input type="text" id="basic-icon-default-company" class="form-control" placeholder="as..." aria-label="ACME Inc." aria-describedby="basic-icon-default-company2">
+                    <input type="text" id="basic-icon-default-company" class="form-control" placeholder="as..." aria-label="ACME Inc." aria-describedby="basic-icon-default-company2"name="identity_photo">
                   </div>
                 </div>
                 <div class="form-text">You can use letters, numbers &amp; periods</div>
+                <button type="submit" class="btn btn-primary">Send</button>
               </div>            
-              <button type="submit" class="btn btn-primary">Send</button>
             </form>
           </div>
         </div>
@@ -78,31 +71,34 @@
       <div class="card mb-4">
           <h5 class="m-5 text-end">Guest Data</h5>
           <div class="table-responsive">
-            <table class="table table-bordered w-100 mb-0">
+            <table class="table table-bordered mb-0">
               <thead>
                 <tr>
-                  <th>Full Name</th>
+                  <th>No</th>
+                  <th>Name</th>
                   <th>Phone No</th>
-                  <th>Email</th>
                   <th>ID Number</th>
                   <th>ID Photo</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
                 @foreach($guests as $gst)
                 <tr>
-                  <td>{{ $gst->id }}</td>
+                  <td>{{ $loop->iteration }}</td>
                   <td>{{ $gst->name }}</td>
                   <td>{{ $gst->phone }}</td>
-                  <td>{{ $gst->email }}</td>
-                  <td>{{ $gst->gender }}</td>
-                <td class="d-flex">
-                  <a href="/guest/{{ $gst->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
-                  &nbsp;
-                  <form action="/guest/{{ $gst->id }}" method="post">
-                  @csrf
-                  @method('delete')
-                  <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                  <td>{{ $gst->identity_number }}</td>
+                  <td>{{ $gst->identity_photo }}</td>
+                  <div class="text-center">
+                    <td class="d-flex">
+                      <a href="/guest/{{ $gst->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+                      &nbsp;
+                      <form action="/guest/{{ $gst->id }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                      </div>
                   </form>
                   </td>
                   </tr>        
