@@ -90,14 +90,14 @@
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item active">
-                                <a href="/room_category" class="menu-link">
+                                <a href="/app/room_category" class="menu-link">
                                     <div class="text-truncate" data-i18n="Room Categories">
                                         Room Categories
                                     </div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="/reservation" class="menu-link">
+                                <a href="/app/reservation" class="menu-link">
                                     <div class="text-truncate" data-i18n="Reservations">
                                         Reservations
                                     </div>
@@ -136,7 +136,7 @@
                         <span class="menu-header-text">Apps &amp; Pages</span>
                     </li>
                     <li class="menu-item">
-                        <a href="/facility"
+                        <a href="/app/facility"
                             target="_blank" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-book-alt"></i>
                             <div class="text-truncate" data-i18n="Facility">Facility</div>
