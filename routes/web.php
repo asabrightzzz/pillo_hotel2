@@ -33,3 +33,13 @@ Route::resource('/reservation', ReservationController::class);
 // Route::delete('/reservation/{reservation}', [ReservationController::class, 'destroy']);
 // Store data atau insert data
 // Route::post('/reservation/{reservation}', [ReservationController::class, 'store']);
+
+Route::resource('/roomcategories', RoomCategoriesController::class);
+
+
+
+Route::get('/roomcategories', [RoomCategoriesController::class, 'index']);
+Route::get('/roomcategories/{roomcategories}/edit', [RoomCategoriesController::class, 'edit']);
+Route::put('/roomcategories/{roomcategories}', [RoomCategoriesController::class, 'update']);
+Route::delete('/roomcategories/{roomcategories}', [RoomCategoriesController::class, 'destroy']);
+Route::post('/roomcategories/{roomcategories}', [RoomCategoriesController::class, 'store']);
