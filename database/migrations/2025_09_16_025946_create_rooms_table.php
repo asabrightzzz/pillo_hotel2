@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('name');
             $table->enum('status');
             $table->enum('status');
-            $table->foreignId('room_category_id')->constrained('guests');
+            $table->foreignId('room_category_id')->constrained('room_category');
             $table->timestamps();
         });
     }
