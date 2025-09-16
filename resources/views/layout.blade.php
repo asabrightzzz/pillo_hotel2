@@ -82,7 +82,7 @@
                 <ul class="menu-inner py-1">
                     <!-- Dashboards -->
                     <li class="menu-item active open">
-                        <a href="{{ route('room_category.index') }}" class="menu-link menu-toggle">
+                        <a href="/roomcategory" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-home-smile"></i>
                             <div class="text-truncate" data-i18n="Dashboards">
                                 Dashboards
@@ -90,14 +90,14 @@
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item active">
-                                <a href="{{ route('room_category.index') }}" class="menu-link">
+                                <a href="/roomcategory" class="menu-link">
                                     <div class="text-truncate" data-i18n="Room Categories">
                                         Room Categories
                                     </div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="{{ route('reservation.index') }}" class="menu-link">
+                                <a href="/reservation" class="menu-link">
                                     <div class="text-truncate" data-i18n="Reservations">
                                         Reservations
                                     </div>

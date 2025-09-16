@@ -16,7 +16,7 @@ Route::view('/', 'layout')->name('home');
 //     return view('welcome');
 // });
 
-Route::prefix('app')->name('.app') ->group(function () {
+Route::prefix('app')->name('.app')->group(function () {
   // guest
     Route::resource('guest', GuestController::class);
     // Facility
@@ -28,7 +28,7 @@ Route::prefix('app')->name('.app') ->group(function () {
     // employee
     Route::resource('employee', EmployeeController::class);
     // Room Category
-    Route::resource('room_category', RoomCategoryController::class);
+    Route::resource('roomcategory', RoomCategoryController::class);
 
 
 });
