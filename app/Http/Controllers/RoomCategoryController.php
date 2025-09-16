@@ -2,20 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\RoomCategories;
-use App\Models\Guest;
+use App\Models\RoomCategory;
 use Illuminate\Http\Request;
 
-class RoomCategoriesController extends Controller
+class RoomCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $guests = Guest::all();
-        $roomcategories = RoomCategories::all();
-        return view('roomcategories.index', compact('roomcategories'));
+        $roomCategories = RoomCategory::all();
+        return view('roomcategory.index', compact('roomCategories'));
     }
 
     /**
@@ -31,7 +29,6 @@ class RoomCategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        // Validasi dulu biar aman
         $request->validate([
             'name' => 'required|string|max:255',
             'price' => 'required|numeric',
@@ -41,7 +38,7 @@ class RoomCategoriesController extends Controller
         ]);
 
         // Simpan ke database
-        RoomCategories::create([
+        RoomCategory::create([
             'name' => $request->name,
             'price' => $request->price,
             'room_size' => $request->room_size,
@@ -52,11 +49,10 @@ class RoomCategoriesController extends Controller
         return redirect()->back()->with('success', 'Room category created successfully!');
     }
 
-
     /**
      * Display the specified resource.
      */
-    public function show(RoomCategories $roomCategories)
+    public function show(RoomCategory $roomCategory)
     {
         //
     }
@@ -64,23 +60,22 @@ class RoomCategoriesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(RoomCategories $roomCategories)
+    public function edit(RoomCategory $roomCategory)
     {
-        $guests = Guest::all();
-        return view('roomcategories.edit', compact('roomCategories', 'guests'));
+        return view('roomcategory.edit', compact('roomCategory'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, RoomCategories $roomCategories)
+    public function update(Request $request, RoomCategory $roomCategory)
     {
-        $roomCategories->name = $request->name;
-        $roomCategories->price = $request->price;
-        $roomCategories->room_size = $request->room_size;
-        $roomCategories->capacity = $request->capacity;
-        $roomCategories->bed_setup = $request->bed_setup;
-        $roomCategories->update();
+       $roomCategory->name = $request->name;
+       $roomCategory->price = $request->price;
+       $roomCategory->room_size = $request->room_size;
+       $roomCategory->capacity = $request->capacity;
+       $roomCategory->bed_setup = $request->bed_setup;
+       $roomCategory->update();
 
         return redirect('roomcategories');
     }
@@ -88,9 +83,9 @@ class RoomCategoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(RoomCategories $roomCategories)
+    public function destroy(RoomCategory $roomCategory)
     {
-        $roomCategories->delete();
+        $roomCategory->delete();
         return back();
     }
 }

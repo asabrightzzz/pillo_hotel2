@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ReservationController;
-use App\Http\Controllers\RoomCategoriesController;
-use App\Models\RoomCategories;
+use App\Http\Controllers\RoomCategoryController;
+use App\Models\RoomCategory;
 use App\Models\Reservation;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\GuestController;
@@ -34,12 +34,12 @@ Route::resource('/reservation', ReservationController::class);
 // Store data atau insert data
 // Route::post('/reservation/{reservation}', [ReservationController::class, 'store']);
 
-Route::resource('/roomcategories', RoomCategoriesController::class);
+Route::resource('/room_category', RoomCategoryController::class);
 
 
 
-Route::get('/roomcategories', [RoomCategoriesController::class, 'index']);
-Route::get('/roomcategories/{roomcategories}/edit', [RoomCategoriesController::class, 'edit']);
-Route::put('/roomcategories/{roomcategories}', [RoomCategoriesController::class, 'update']);
-Route::delete('/roomcategories/{roomcategories}', [RoomCategoriesController::class, 'destroy']);
-Route::post('/roomcategories/{roomcategories}', [RoomCategoriesController::class, 'store']);
+// Route::get('/roomcategories', [RoomCategoryController::class, 'index']);
+// Route::get('/roomcategories/{roomcategories}/edit', [RoomCategoryController::class, 'edit']);
+// Route::put('/roomcategories/{roomcategories}', [RoomCategoryController::class, 'update']);
+// Route::delete('/roomcategories/{roomcategories}', [RoomCategoryController::class, 'destroy']);
+// Route::post('/roomcategories/{roomcategories}', [RoomCategoryController::class, 'store']);
