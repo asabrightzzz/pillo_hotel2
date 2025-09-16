@@ -15,7 +15,7 @@ class FacilityController extends Controller
     public function index()
     {
         $facilities = Facility::all();
-        return view('facilities.index', compact('facilities'));
+        return view('facility.index', compact('facilities'));
     }
 
     /**
@@ -23,7 +23,7 @@ class FacilityController extends Controller
      */
     public function create()
     {
-        return view('facilities.create');
+        return view('facility.create');
     }
 
     /**
@@ -39,7 +39,6 @@ class FacilityController extends Controller
         ]);
 
         Facility::create($validatedData);
-        // Correcting the redirect route name
         return redirect()->route('app.facility.index')->with('success', 'Fasilitas berhasil ditambahkan.');
     }
 
@@ -48,7 +47,7 @@ class FacilityController extends Controller
      */
     public function edit(Facility $facility)
     {
-        return view('facilities.edit', compact('facility'));
+        return view('facility.edit', compact('facility'));
     }
 
     /**
@@ -64,7 +63,6 @@ class FacilityController extends Controller
         ]);
 
         $facility->update($validatedData);
-        // Correcting the redirect route name
         return redirect()->route('app.facility.index')->with('success', 'Fasilitas berhasil diperbarui.');
     }
 
