@@ -15,7 +15,7 @@ Route::view('/', 'layout')->name('home');
 //     return view('welcome');
 // });
 
-Route::view('/guest', 'guest');
+Route::resource('/guest', 'guest');
 
 Route::view('/employees' , 'employees');
 Route::view('/facility' , 'facility');
