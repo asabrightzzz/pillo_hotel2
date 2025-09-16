@@ -8,10 +8,9 @@ class room extends Model
 {
     protected $fillable = [
         'name',
-        'phone',
-        'email',
-        'password',
-        'gender',
+        'status',
+        'room_category_id',
+        'description',
     ];
 
     protected $hidden = [

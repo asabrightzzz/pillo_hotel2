@@ -8,6 +8,7 @@ use App\Models\Reservation;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\GuestController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoomController;
 
 Route::view('/', 'layout')->name('home');
 
@@ -28,8 +29,9 @@ Route::prefix('app')->name('.app') ->group(function () {
     Route::view('/', 'layout')->name('home');
     // employee
     Route::resource('employee', EmployeeController::class);
-    // room categories
-    Route::resource('/room_category', RoomCategoryController::class);
+
+// Satu Kesatuan dari semua method untuk kebutuhan CRUD
+Route::resource('/reservation', ReservationController::class);
 });
 
 // Menampilkan halaman utama
@@ -42,4 +44,3 @@ Route::prefix('app')->name('.app') ->group(function () {
 // Route::delete('/reservation/{reservation}', [ReservationController::class, 'destroy']);
 // Store data atau insert data
 // Route::post('/reservation/{reservation}', [ReservationController::class, 'store']);
-

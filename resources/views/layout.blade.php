@@ -63,7 +63,7 @@
 
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo pt-2">
-                    <a href="index.html" class="app-brand-link">
+                    <a href="{{ route('home') }}" class="app-brand-link">
                         <span class="app-brand-logo demo">
                             <img src="{{ asset('assets/img/logo/images.jpeg') }}" alt="Logo Pillo" width="70" />
                         </span>
@@ -82,7 +82,7 @@
                 <ul class="menu-inner py-1">
                     <!-- Dashboards -->
                     <li class="menu-item active open">
-                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                        <a href="{{ route('room_category.index') }}" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-home-smile"></i>
                             <div class="text-truncate" data-i18n="Dashboards">
                                 Dashboards
@@ -90,14 +90,14 @@
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item active">
-                                <a href="index.html" class="menu-link">
-                                    <div class="text-truncate" data-i18n="Analytics">
-                                        Analytics
+                                <a href="{{ route('room_category.index') }}" class="menu-link">
+                                    <div class="text-truncate" data-i18n="Room Categories">
+                                        Room Categories
                                     </div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/dashboards-crm.html"
+                                <a href=""
                                     target="_blank" class="menu-link">
                                     <div class="text-truncate" data-i18n="CRM">CRM</div>
 
@@ -188,7 +188,7 @@
                 </div>
                  </div>
                     <div class="navbar-nav-right d-flex align-items-center justify-content-end" id="navbar-collapse">
-                        
+
                         <ul class="navbar-nav flex-row align-items-center ms-md-auto">
 
                                 </a>
