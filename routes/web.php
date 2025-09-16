@@ -10,13 +10,7 @@ use App\Models\RoomCategory;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'layout')->name('home');
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::prefix('app')->name('.app')->group(function () {
+Route::prefix('app')->name('app.') ->group(function () {
   // guest
     Route::resource('guest', GuestController::class);
     // Facility
@@ -27,8 +21,15 @@ Route::prefix('app')->name('.app')->group(function () {
     Route::resource('room', RoomController::class);
     // employee
     Route::resource('employee', EmployeeController::class);
-    // Room Category
-    Route::resource('roomcategory', RoomCategoryController::class);
-
-
 });
+
+// Menampilkan halaman utama
+// Route::get('/reservation', [ReservationController::class, 'index']);
+// Menampilkan halaman edit dengan data reservation
+// Route::get('/reservation/{reservation}/edit', [ReservationController::class, 'edit']);
+// Update data reservation
+// Route::put('/reservation/{reservation}', [ReservationController::class, 'update']);
+// Delete data
+// Route::delete('/reservation/{reservation}', [ReservationController::class, 'destroy']);
+// Store data atau insert data
+// Route::post('/reservation/{reservation}', [ReservationController::class, 'store']);
