@@ -9,7 +9,7 @@
         <small class="text-body float-end">Room Categories</small>
       </div>
       <div class="card-body">
-        <form action="/room_category" method="POST">
+        <form action="/app/room_category" method="POST">
           @csrf
           <div class="mb-6">
             <label class="form-label" for="name">Name</label>

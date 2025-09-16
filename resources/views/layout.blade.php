@@ -90,7 +90,7 @@
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item active">
-                                <a href="/room_category" class="menu-link">
+                                <a href="/app/room_category" class="menu-link">
                                     <div class="text-truncate" data-i18n="Room Categories">
                                         Room Categories
                                     </div>
@@ -136,28 +136,34 @@
                         <span class="menu-header-text">Apps &amp; Pages</span>
                     </li>
                     <li class="menu-item">
-                        <a href="/facility"
+                        <a href="/app/facility"
                             target="_blank" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-book-alt"></i>
                             <div class="text-truncate" data-i18n="Facility">Facility</div>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="/reservation" class="menu-link">
+                        <a href="/app/reservation" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-book-alt"></i>
                             <div class="text-truncate" data-i18n="Reservation">Reservation</div>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="/employee" class="menu-link">
+                        <a href="/app/employee" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-book-alt"></i>
                             <div class="text-truncate" data-i18n="employee">Employee</div>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="/guest" class="menu-link">
+                        <a href="/app/guest" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-book-alt"></i>
                             <div class="text-truncate" data-i18n="guest">Guest</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/app/room_category" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-book-alt"></i>
+                            <div class="text-truncate" data-i18n="room_category">Room Categories</div>
                         </a>
                     </li>
                 </ul>
