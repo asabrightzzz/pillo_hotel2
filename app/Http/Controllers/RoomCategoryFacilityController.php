@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\room_category;
+use App\Models\room_category_facility;
 use Illuminate\Http\Request;
 
-class RoomCategoryController extends Controller
+class RoomCategoryFacilityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class RoomCategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(room_category $room_category)
+    public function show(room_category_facility $room_category_facility)
     {
         //
     }
@@ -42,7 +42,7 @@ class RoomCategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(room_category $room_category)
+    public function edit(room_category_facility $room_category_facility)
     {
         //
     }
@@ -50,7 +50,7 @@ class RoomCategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, room_category $room_category)
+    public function update(Request $request, room_category_facility $room_category_facility)
     {
         //
     }
@@ -58,7 +58,7 @@ class RoomCategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(room_category $room_category)
+    public function destroy(room_category_facility $room_category_facility)
     {
         //
     }
