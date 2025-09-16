@@ -9,13 +9,13 @@
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
     <title>
-        Analytics
+        Pillo Kaliana
     </title>
 
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/favicon.ico') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/logo/images.jpeg') }}" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,6 +25,10 @@
         rel="stylesheet" />
 
     <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/iconify-icons.css') }}" />
+
+    <!-- iocns -->
+
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
     <!-- Core CSS -->
     <!-- build:css assets/vendor/css/theme.css  -->
@@ -58,12 +62,12 @@
             <!-- Menu -->
 
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-                <div class="app-brand demo">
+                <div class="app-brand demo pt-2">
                     <a href="index.html" class="app-brand-link">
                         <span class="app-brand-logo demo">
                             <img src="{{ asset('assets/img/logo/images.jpeg') }}" alt="Logo Pillo" width="70" />
                         </span>
-                        <span class="app-brand-text demo menu-text fw-bold ms-2">Sneat</span>
+                        <span class="app-brand-text demo menu-text fw-bold ms-2">Pillo Hotel</span>
                     </a>
 
                     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -138,44 +142,55 @@
                             <div class="text-truncate" data-i18n="Email">Email</div>
                         </a>
                     </li>
+                    <li class="menu-item">
+                        <a href="/reservation" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-book-alt"></i>
+                            <div class="text-truncate" data-i18n="Reservation">Reservation</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/employee" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-book-alt"></i>
+                            <div class="text-truncate" data-i18n="employee">Employee</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/guest" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-book-alt"></i>
+                            <div class="text-truncate" data-i18n="guest">Guest</div>
+                        </a>
+                    </li>
                 </ul>
             </aside>
             <!-- / Menu -->
 
             <!-- Layout container -->
             <div class="layout-page">
-                <!-- Navbar -->
+                  <nav
+            class="layout-navbar container-xxl navbar-detached navbar navbar-expand-xl align-items-center bg-navbar-theme"
+            id="layout-navbar">
+            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-4 me-xl-0 d-xl-none">
+              <a class="nav-item nav-link px-0 me-xl-6" href="javascript:void(0)">
+                <i class="icon-base bx bx-menu icon-md"></i>
+              </a>
+            </div>
 
-                <nav class="layout-navbar container-xxl navbar-detached navbar navbar-expand-xl align-items-center bg-navbar-theme"
-                    id="layout-navbar">
-                    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-4 me-xl-0 d-xl-none">
-                        <a class="nav-item nav-link px-0 me-xl-6" href="javascript:void(0)">
-                            <i class="icon-base bx bx-menu icon-md"></i>
-                        </a>
-                    </div>
-
+            <div class="navbar-nav-right d-flex align-items-center justify-content-end" id="navbar-collapse">
+              <!-- Search -->
+              <div class="navbar-nav align-items-center me-auto">
+                <div class="nav-item d-flex align-items-center">
+                  <span class="w-px-22 h-px-22"><i class="icon-base bx bx-search icon-md"></i></span>
+                  <input
+                    type="text"
+                    class="form-control border-0 shadow-none ps-1 ps-sm-2 d-md-block d-none"
+                    placeholder="Search..."
+                    aria-label="Search..." />
+                </div>
+                 </div>
                     <div class="navbar-nav-right d-flex align-items-center justify-content-end" id="navbar-collapse">
-                        <!-- Search -->
-                        <div class="navbar-nav align-items-center me-auto">
-                            <div class="nav-item d-flex align-items-center">
-                                <span class="w-px-22 h-px-22"><i class="icon-base bx bx-search icon-md"></i></span>
-                                <input type="text"
-                                    class="form-control border-0 shadow-none ps-1 ps-sm-2 d-md-block d-none"
-                                    placeholder="Search..." aria-label="Search..." />
-                            </div>
-                        </div>
-                        <!-- /Search -->
-
+                        
                         <ul class="navbar-nav flex-row align-items-center ms-md-auto">
 
-                            <!-- User -->
-                            <li class="nav-item navbar-dropdown dropdown-user dropdown">
-                                <a class="nav-link dropdown-toggle hide-arrow p-0" href="javascript:void(0);"
-                                    data-bs-toggle="dropdown">
-                                    <div class="avatar avatar-online">
-                                        <img src="{{ asset('assets/img/avatars/1.png') }}" alt
-                                            class="w-px-40 h-auto rounded-circle" />
-                                    </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li>

@@ -12,7 +12,8 @@ class GuestController extends Controller
      */
     public function index()
     {
-        //
+    $guests = Guest::all();
+    return view('guest.index', compact('guests'));
     }
 
     /**
@@ -20,7 +21,7 @@ class GuestController extends Controller
      */
     public function create()
     {
-        //
+       return view('guest.create');
     }
 
     /**
@@ -28,7 +29,8 @@ class GuestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Guest::create($request->all());
+        return back();
     }
 
     /**
@@ -44,7 +46,7 @@ class GuestController extends Controller
      */
     public function edit(Guest $guest)
     {
-        //
+         return view('guest.edit', compact('guest'));
     }
 
     /**
@@ -52,7 +54,13 @@ class GuestController extends Controller
      */
     public function update(Request $request, Guest $guest)
     {
-        //
+       $guest->name                  = $request->name;
+        $guest->phone                = $request->phone;
+        $guest->identity_number      = $request->identity_number;
+        $guest->identity_photo       = $request->identity_photo;
+        $guest->update();
+
+        return redirect('guest');
     }
 
     /**
@@ -60,6 +68,8 @@ class GuestController extends Controller
      */
     public function destroy(Guest $guest)
     {
-        //
+        $guest->delete();
+
+        return back();
     }
 }

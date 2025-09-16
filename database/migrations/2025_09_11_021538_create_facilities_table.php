@@ -10,7 +10,9 @@ return new class extends Migration {
         Schema::create('facilities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('stok')->default(0);
+            $table->text('description')->nullable();
+            $table->enum('type', ['room','public'])->default('room');
+            $table->integer('stock')->nullable();
             $table->timestamps();
         });
     }
