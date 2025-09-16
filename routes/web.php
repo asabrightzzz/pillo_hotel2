@@ -17,7 +17,6 @@ Route::view('/', 'layout')->name('home');
 
 Route::view('/guest', 'guest');
 
-<<<<<<< HEAD
     Route::resource('guest', GuestController::class);
     Route::resource('facility', FacilityController::class);
     Route::resource('reservation', ReservationController::class); 
@@ -30,10 +29,6 @@ Route::view('/guest', 'guest');
     Route::delete('/roomcategories/{roomcategories}', [RoomCategoriesController::class, 'destroy']);
     Route::post('/roomcategories/{roomcategories}', [RoomCategoriesController::class, 'store']);
 });
-=======
-Route::view('/employees' , 'employees');
-Route::view('/facility' , 'facility');
->>>>>>> 749abc39f7a67b066268df8248e2137997474499
 
 // Satu Kesatuan dari semua method untuk kebutuhan CRUD
 Route::resource('/reservation', ReservationController::class);
