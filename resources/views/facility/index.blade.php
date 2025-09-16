@@ -44,11 +44,9 @@
                                 <td class="text-start">{{ $facility->description ?? 'No Description' }}</td>
                                 <td class="text-center">
                                     <div class="d-flex justify-content-center">
-                                        {{-- Corrected the 'Edit' button route --}}
                                         <a href="{{ route('app.facility.edit', $facility->id) }}" class="btn btn-sm btn-outline-primary me-2" title="Edit">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        {{-- Corrected the 'Delete' form action --}}
                                         <form action="{{ route('app.facility.destroy', $facility->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this facility?');">
                                             @csrf
                                             @method('DELETE')

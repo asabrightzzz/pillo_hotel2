@@ -15,28 +15,22 @@ Route::view('/', 'layout')->name('home');
 //     return view('welcome');
 // });
 
-Route::view('/guest', 'guest');
-
-<<<<<<< HEAD
+Route::prefix('app')->name('.app') ->group(function () {
+  // guest
     Route::resource('guest', GuestController::class);
+    // Facility
     Route::resource('facility', FacilityController::class);
+    // Reservation
     Route::resource('reservation', ReservationController::class); 
+    // Room
     Route::resource('room', RoomController::class); 
+    // base
     Route::view('/', 'layout')->name('home');
+    // employee
     Route::resource('employee', EmployeeController::class);
-    Route::get('/roomcategories', [RoomCategoriesController::class, 'index']);
-    Route::get('/roomcategories/{roomcategories}/edit', [RoomCategoriesController::class, 'edit']);
-    Route::put('/roomcategories/{roomcategories}', [RoomCategoriesController::class, 'update']);
-    Route::delete('/roomcategories/{roomcategories}', [RoomCategoriesController::class, 'destroy']);
-    Route::post('/roomcategories/{roomcategories}', [RoomCategoriesController::class, 'store']);
+    // room categories
+    Route::resource('/room_category', RoomCategoryController::class);
 });
-=======
-Route::view('/employees' , 'employees');
-Route::view('/facility' , 'facility');
->>>>>>> 749abc39f7a67b066268df8248e2137997474499
-
-// Satu Kesatuan dari semua method untuk kebutuhan CRUD
-Route::resource('/reservation', ReservationController::class);
 
 // Menampilkan halaman utama
 // Route::get('/reservation', [ReservationController::class, 'index']);
@@ -49,4 +43,3 @@ Route::resource('/reservation', ReservationController::class);
 // Store data atau insert data
 // Route::post('/reservation/{reservation}', [ReservationController::class, 'store']);
 
-Route::resource('/room_category', RoomCategoryController::class);
