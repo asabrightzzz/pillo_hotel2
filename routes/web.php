@@ -18,6 +18,7 @@ use App\Models\Guest;
     Route::resource('guest', GuestController::class);
     Route::resource('facility', FacilityController::class);
     Route::resource('reservation', ReservationController::class); 
+    Route::resource('room', RoomController::class); 
     Route::view('/', 'layout')->name('home');
     Route::resource('employee', EmployeeController::class);
     Route::get('/roomcategories', [RoomCategoriesController::class, 'index']);
