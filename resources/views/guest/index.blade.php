@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="col-xl">
-      <form action="/guest" method="post">
+      <form action="/app/guest" method="post">
         @csrf
         <div class="card mb-4">
           <div class="card-header d-flex justify-content-between align-items-center">

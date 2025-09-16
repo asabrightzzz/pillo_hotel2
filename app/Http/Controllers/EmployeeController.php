@@ -62,7 +62,7 @@ class EmployeeController extends Controller
         $employee->gender       = $request->gender;
         $employee->update();
 
-        return redirect('employee');
+        return redirect('/app/employee');
     }
 
     /**

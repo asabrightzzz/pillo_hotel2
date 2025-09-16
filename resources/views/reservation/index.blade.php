@@ -16,7 +16,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-6 col-lg-4">
-                    <form action="/reservation" method="post">
+                    <form action="/app/reservation" method="post">
                         @csrf
                         <input type="text" class="form-control mb-2" name="code" placeholder="Masukkan Kode Reservasi"
                             required>
