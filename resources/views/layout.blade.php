@@ -82,7 +82,7 @@
                 <ul class="menu-inner py-1">
                     <!-- Dashboards -->
                     <li class="menu-item active open">
-                        <a href="/roomcategory" class="menu-link menu-toggle">
+                        <a href="/app/room_category" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-home-smile"></i>
                             <div class="text-truncate" data-i18n="Dashboards">
                                 Dashboards
@@ -90,7 +90,7 @@
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item active">
-                                <a href="/roomcategory" class="menu-link">
+                                <a href="/room_category" class="menu-link">
                                     <div class="text-truncate" data-i18n="Room Categories">
                                         Room Categories
                                     </div>

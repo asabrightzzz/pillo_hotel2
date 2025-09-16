@@ -10,7 +10,9 @@ use App\Models\RoomCategory;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Route;
 
+
 Route::prefix('app')->name('app.') ->group(function () {
+Route::view('/', 'layout')->name('home');
   // guest
     Route::resource('guest', GuestController::class);
     // Facility
@@ -21,6 +23,8 @@ Route::prefix('app')->name('app.') ->group(function () {
     Route::resource('room', RoomController::class);
     // employee
     Route::resource('employee', EmployeeController::class);
+    // Room Category
+    Route::resource('room_category', RoomCategoryController::class);
 });
 
 // Menampilkan halaman utama
