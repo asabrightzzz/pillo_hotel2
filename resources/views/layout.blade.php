@@ -76,7 +76,7 @@
 
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo pt-2">
-                    <a href="{{ route('app.home') }}" class="app-brand-link">
+                    <a href="/app/dashboard" class="app-brand-link">
                         <span class="app-brand-logo demo">
                             <img src="{{ asset('assets/img/logo/images.jpeg') }}" alt="Logo Pillo" width="70" />
                         </span>
@@ -94,7 +94,7 @@
 
                 <ul class="menu-inner py-1">
                     <li class="menu-item {{ set_active(['/app']) }}">
-                        <a href="/app" class="menu-link">
+                        <a href="/app/dashboard" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home"></i>
                             <div data-i18n="Dashboard">Dashboard</div>
                         </a>
@@ -139,6 +139,12 @@
                             <div data-i18n="Reservation">Reservation</div>
                         </a>
                     </li>
+
+                    <li class="menu-item {{ set_active(['app/employee*']) }}">
+                        <a href="/app/employee" class="menu-link">
+                            <i class="fas fa-user-tie"></i>
+                            <div data-i18n="Employee">Employee</div>
+                        </a>
 
                 </ul>
             </aside>
@@ -236,6 +242,7 @@
                         @yield('content')
                     </div>
                     <!-- / Content -->
+
 
                     <!-- Footer -->
                     <footer class="content-footer footer bg-footer-theme">

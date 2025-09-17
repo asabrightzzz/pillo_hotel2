@@ -48,7 +48,7 @@
             </div>
           </div>
           {{-- <div class="card-body">
-          
+
           </div> --}}
         </div>
 
@@ -59,7 +59,7 @@
                 <i class="fas fa-arrow-left mr-2"></i>Kembali
             </a>
         </div>
-    
+
         @if ($errors->any())
             <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-lg mb-6" role="alert">
                 <p class="font-bold">Ada beberapa masalah dengan input Anda:</p>
@@ -94,7 +94,7 @@
                 <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Deskripsi</label>
                 <textarea name="description" id="description" rows="4" class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-200">{{ old('description') }}</textarea>
             </div>
-            
+
             <div class="flex justify-end mt-6">
                 <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg shadow-sm transition-colors duration-200">
                     <i class="fas fa-save mr-2"></i>Simpan Fasilitas

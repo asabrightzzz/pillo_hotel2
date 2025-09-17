@@ -79,22 +79,22 @@
                   <td>{{ $emp->email }}</td>
                   <td>{{ $emp->gender }}</td>
                 <td class="d-flex">
-                  <a href="/employee/{{ $emp->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+                  <a href="/app/employee/{{ $emp->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
                   &nbsp;
-                  <form action="/employee/{{ $emp->id }}" method="post">
+                  <form action="/app/employee/{{ $emp->id }}" method="post">
                   @csrf
                   @method('delete')
                   <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                   </form>
                   </td>
-                  </tr>        
+                  </tr>
                 </tr>
                 @endforeach
               </tbody>
             </table>
           </div>
         </div>
-          
 
-                              
+
+
         @endsection
