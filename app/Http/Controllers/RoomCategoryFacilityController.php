@@ -12,7 +12,8 @@ class RoomCategoryFacilityController extends Controller
      */
     public function index()
     {
-        //
+        $room_category_facility = room_category_facility::all();
+        return view('room_category_facility.index', compact('room_category_facility'));
     }
 
     /**

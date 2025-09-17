@@ -100,20 +100,6 @@
                         </a>
                     </li>
 
-                    <li class="menu-item {{ set_active(['app/guest']) }}">
-                        <a href="/app/guest" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-category"></i>
-                            <div data-i18n="Guest">Guest</div>
-                        </a>
-                    </li>
-
-                    <li class="menu-item {{ set_active(['app/employee']) }}">
-                        <a href="/app/employee" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-user"></i>
-                            <div data-i18n="Employee">Employee</div>
-                        </a>
-                    </li>
-
                     <li class="menu-item {{ set_active(['app/room_category*', 'app/room_category_facility*']) }} {{ set_open(['app/room_category*', 'app/room_category_facility*']) }}">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-building-house"></i>
@@ -131,7 +117,28 @@
                                 </a>
                             </li>
                         </ul>
+                    </li>
 
+                    <li class="menu-item {{ set_active(['app/room*']) }}">
+                        <a href="/app/room" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-door-open"></i>
+                            <div data-i18n="Room">Room</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item {{ set_active(['app/guest*']) }}">
+                        <a href="/app/guest" class="menu-link">
+                            <i class="fas fa-user"></i>
+                            <div data-i18n="Guest">Guest</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item {{ set_active(['app/reservation*']) }}">
+                        <a href="/app/reservation" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-book-bookmark"></i>
+                            <div data-i18n="Reservation">Reservation</div>
+                        </a>
+                    </li>
 
                 </ul>
             </aside>
