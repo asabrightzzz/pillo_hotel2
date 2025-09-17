@@ -10,7 +10,7 @@
                 <h4 class="fw-bold mb-0 text-center">Edit Employee</h4>
             </div>
             <div class="card-body">
-                <form action="/employee/{{ $employee->id }}" method="POST">
+                <form action="/app/employee/{{ $employee->id }}" method="POST">
 
                     @csrf
                     @method('PUT')
@@ -43,7 +43,7 @@
                 </div>
                 <div class="mb-2 text-start mt-4">
                     <button type="submit" class="btn btn-primary btn-sm">Submit</button>
-                </div>                                        
+                </div>
             </form>
             </div>
         </div>

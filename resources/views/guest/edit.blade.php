@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-header">
                 <h5 class="mb-0">Edit Guest Data</h5>
-                <form action="/guest/{{ $guest->id }}" method="POST">
+                <form action="/app/guest/{{ $guest->id }}" method="POST">
                   @csrf
                   @method('PUT')
                     <div class="mb-3">
@@ -23,7 +23,7 @@
                   <span id="basic-icon-default-phone2" class="input-group-text"><i class="bx bx-phone"></i></span>
                   <input type="text" id="basic-icon-default-phone" class="form-control phone-mask" placeholder="658 799 8941" aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2"name="phone" value="{{ $guest->phone }}">
                 </div>
-              </div>                        
+              </div>
                 <div class="mb-3">
                   <label class="form-label" for="basic-icon-default-company">ID Number</label>
                   <div class="input-group input-group-merge">
@@ -40,7 +40,7 @@
                 </div>
                 <div class="form-text">You can edit your data &amp; other</div>
                 <button type="submit" class="btn btn-primary">Send</button>
-              </div>            
+              </div>
                 </form>
             </div>
         </div>
