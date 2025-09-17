@@ -1,0 +1,12 @@
+.menu-sub {
+    max-height: 0;
+    overflow: hidden;
+    padding-left: 1.5rem;
+    transition: max-height 0.35s ease, opacity 0.35s ease;
+    opacity: 0;
+}
+
+.menu-item.open > .menu-sub {
+    max-height: 500px; /* big enough to fit all items */
+    opacity: 1;
+}

@@ -3,6 +3,7 @@
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\RoomCategoryController;
+use App\Http\Controllers\RoomCategoryFacilityController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\GuestController;
@@ -25,6 +26,8 @@ Route::view('/', 'layout')->name('home');
     Route::resource('employee', EmployeeController::class);
     // Room Category
     Route::resource('room_category', RoomCategoryController::class);
+    // Room Category Facility
+    Route::resource('room_category_facility', RoomCategoryFacilityController::class);
 });
 
 // Menampilkan halaman utama

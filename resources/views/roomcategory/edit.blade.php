@@ -16,7 +16,7 @@
                     <h4 class="fw-bold mb-0">Edit Room Categories</h4>
                 </div>
                 <div class="card-body">
-                    <form action="/room_category/{{ $roomCategory->id }}" method="POST">
+                    <form action="/app/room_category/{{ $roomCategory->id }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="mb-2">

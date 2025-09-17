@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="col-xl">
-      <form action="/guest" method="post">
+      <form action="/app/guest" method="post">
         @csrf
         <div class="card mb-4">
           <div class="card-header d-flex justify-content-between align-items-center">
@@ -24,7 +24,7 @@
                   <span id="basic-icon-default-phone2" class="input-group-text"><i class="bx bx-phone"></i></span>
                   <input type="text" id="basic-icon-default-phone" class="form-control phone-mask" placeholder="658 799 8941" aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2"name="phone">
                 </div>
-              </div>                        
+              </div>
                 <div class="mb-3">
                   <label class="form-label" for="basic-icon-default-company">ID Number</label>
                   <div class="input-group input-group-merge">
@@ -41,7 +41,7 @@
                 </div>
                 <div class="form-text">You can use letters, numbers &amp; periods</div>
                 <button type="submit" class="btn btn-primary">Send</button>
-              </div>            
+              </div>
             </form>
           </div>
         </div>
@@ -70,23 +70,23 @@
                   <td>{{ $gst->identity_photo }}</td>
                   <div class="text-center">
                     <td class="d-flex">
-                      <a href="/guest/{{ $gst->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+                      <a href="/app/guest/{{ $gst->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
                       &nbsp;
-                      <form action="/guest/{{ $gst->id }}" method="post">
+                      <form action="/app/guest/{{ $gst->id }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                       </div>
                   </form>
                   </td>
-                  </tr>        
+                  </tr>
                 </tr>
                 @endforeach
               </tbody>
             </table>
           </div>
         </div>
-                    
 
-      
+
+
 @endsection

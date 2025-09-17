@@ -9,7 +9,7 @@
         <small class="text-body float-end">Room Categories</small>
       </div>
       <div class="card-body">
-        <form action="/room_category" method="POST">
+        <form action="/app/room_category" method="POST">
           @csrf
           <div class="mb-6">
             <label class="form-label" for="name">Name</label>
@@ -87,9 +87,9 @@
                 <td>{{ $RC->capacity }}</td>
                 <td>{{ $RC->bed_setup }}</td>
                 <td class="d-flex">
-                  <a href="/room_category/{{ $RC->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+                  <a href="/app/room_category/{{ $RC->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
                   &nbsp;
-                  <form action="/room_category/{{ $RC->id }}" method="post">
+                  <form action="/app/room_category/{{ $RC->id }}" method="post">
                     @csrf
                     @method('delete')
                     <button type="submit" class="btn btn-danger btn-sm">Delete</button>
