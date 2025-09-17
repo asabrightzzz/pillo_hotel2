@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     <title>
         Pillo Kaliana
     </title>
@@ -35,7 +35,6 @@
 
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/core.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/demo.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/vendor/css/smooth_toggle.css') }}" />
 
     <!-- Vendors CSS -->
 
@@ -54,18 +53,6 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
 
     <script src="{{ asset('assets/vendor/js/config.js') }}"></script>
-
-    <script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
-
-    <script src="{{ asset('assets/js/toggle.js') }}"></script>
-
-
-    <style>.menu-item .menu-link i {
-  margin-right: 10px;
-  padding: 4px;
-}
-</style>
-
 </head>
 
 <body>
@@ -76,7 +63,11 @@
 
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo pt-2">
+<<<<<<< HEAD
+                    <a href="{{ route('app.home') }}" class="app-brand-link">
+=======
                     <a href="/app" class="app-brand-link">
+>>>>>>> a37985db36ca444c9cfa8282a9aa8b8a506e089d
                         <span class="app-brand-logo demo">
                             <img src="{{ asset('assets/img/logo/images.jpeg') }}" alt="Logo Pillo" width="70" />
                         </span>
@@ -93,59 +84,91 @@
                 <div class="menu-inner-shadow"></div>
 
                 <ul class="menu-inner py-1">
-                    <li class="menu-item {{ set_active(['/app']) }}">
-                        <a href="/app/dashboard" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home"></i>
-                            <div data-i18n="Dashboard">Dashboard</div>
-                        </a>
-                    </li>
-
-                    <li class="menu-item {{ set_active(['app/room_category*', 'app/room_category_facility*']) }} {{ set_open(['app/room_category*', 'app/room_category_facility*']) }}">
-                        <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-building-house"></i>
-                            <div data-i18n="Room Category">Room Category</div>
+                    <!-- Dashboards -->
+                    <li class="menu-item active open">
+                        <a href="/app/room_category" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-home-smile"></i>
+                            <div class="text-truncate" data-i18n="Dashboards">
+                                Dashboards
+                            </div>
                         </a>
                         <ul class="menu-sub">
-                            <li class="menu-item {{ set_active(['app/room_category*']) }}">
+                            <li class="menu-item active">
                                 <a href="/app/room_category" class="menu-link">
-                                    <div data-i18n="Room Category">Room Category</div>
+                                    <div class="text-truncate" data-i18n="Room Categories">
+                                        Room Categories
+                                    </div>
                                 </a>
                             </li>
-                            <li class="menu-item {{ set_active(['app/room_category_facility*']) }}">
-                                <a href="/app/room_category_facility" class="menu-link">
-                                    <div data-i18n="Room Category Facility">Room Category Facility</div>
+                            <li class="menu-item">
+                                <a href="/reservation" class="menu-link">
+                                    <div class="text-truncate" data-i18n="Reservations">
+                                        Reservations
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-ecommerce-dashboard.html"
+                                    target="_blank" class="menu-link">
+                                    <div class="text-truncate" data-i18n="eCommerce">
+                                        eCommerce
+                                    </div>
+
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-logistics-dashboard.html"
+                                    target="_blank" class="menu-link">
+                                    <div class="text-truncate" data-i18n="Logistics">
+                                        Logistics
+                                    </div>
+
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-academy-dashboard.html"
+                                    target="_blank" class="menu-link">
+                                    <div class="text-truncate" data-i18n="Academy">Academy</div>
+
                                 </a>
                             </li>
                         </ul>
                     </li>
 
-                    <li class="menu-item {{ set_active(['app/room*']) }}">
-                        <a href="/app/room" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-door-open"></i>
-                            <div data-i18n="Room">Room</div>
+                    <!-- Apps & Pages -->
+                    <li class="menu-header small text-uppercase">
+                        <span class="menu-header-text">Apps &amp; Pages</span>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/app/facility" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-book-alt"></i>
+                            <div class="text-truncate" data-i18n="Facility">Facility</div>
                         </a>
                     </li>
-
-                    <li class="menu-item {{ set_active(['app/guest*']) }}">
-                        <a href="/app/guest" class="menu-link">
-                            <i class="fas fa-user"></i>
-                            <div data-i18n="Guest">Guest</div>
-                        </a>
-                    </li>
-
-                    <li class="menu-item {{ set_active(['app/reservation*']) }}">
+                    <li class="menu-item">
                         <a href="/app/reservation" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-book-bookmark"></i>
-                            <div data-i18n="Reservation">Reservation</div>
+                            <i class="menu-icon tf-icons bx bx-book-alt"></i>
+                            <div class="text-truncate" data-i18n="Reservation">Reservation</div>
                         </a>
                     </li>
-
-                    <li class="menu-item {{ set_active(['app/employee*']) }}">
+                    <li class="menu-item">
                         <a href="/app/employee" class="menu-link">
-                            <i class="fas fa-user-tie"></i>
-                            <div data-i18n="Employee">Employee</div>
+                            <i class="menu-icon tf-icons bx bx-book-alt"></i>
+                            <div class="text-truncate" data-i18n="employee">Employee</div>
                         </a>
-
+                    </li>
+                    <li class="menu-item">
+                        <a href="/app/guest" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-book-alt"></i>
+                            <div class="text-truncate" data-i18n="guest">Guest</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/app/room_category" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-book-alt"></i>
+                            <div class="text-truncate" data-i18n="room_category">Room Categories</div>
+                        </a>
+                    </li>
                 </ul>
             </aside>
             <!-- / Menu -->
@@ -242,7 +265,6 @@
                         @yield('content')
                     </div>
                     <!-- / Content -->
-
 
                     <!-- Footer -->
                     <footer class="content-footer footer bg-footer-theme">
