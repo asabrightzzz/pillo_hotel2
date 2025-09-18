@@ -8,13 +8,11 @@ use App\Models\Facility;
 
 class FacilityController extends Controller
 {
-
     public function index()
     {
         $facilities = Facility::all();
         return view('facility.index', compact('facilities'));
     }
-
 
     public function create()
     {
@@ -31,7 +29,7 @@ class FacilityController extends Controller
         ]);
 
         Facility::create($validatedData);
-        return redirect()->route('facility.index')->with('success', 'Fasilitas berhasil ditambahkan.');
+        return redirect()->route('app.facility.index')->with('success', 'Facility Successfully added.');
     }
 
     public function edit(Facility $facility)
@@ -49,12 +47,12 @@ class FacilityController extends Controller
         ]);
 
         $facility->update($validatedData);
-        return redirect()->route('facility.index')->with('success', 'Fasilitas berhasil diperbarui.');
+        return redirect()->route('app.facility.index')->with('success', 'Facility Successfully Updated.');
     }
 
     public function destroy(Facility $facility)
     {
         $facility->delete();
-        return redirect()->route('facility.index')->with('success', 'Fasilitas berhasil dihapus.');
+        return redirect()->route('app.facility.index')->with('success', 'Facility Successfully Deleted .');
     }
 }
