@@ -27,13 +27,7 @@
                             </select>
                         </div>
 
-                        <div class="mb-3">
-                          <label class="form-label" for="basic-icon-default-email">Email</label>
-                          <div class="input-group input-group-merge">
-                            <span class="input-group-text"><i class="bx bx-envelope"></i></span>
-                            <input type="email" id="basic-icon-default-email" name="email" class="form-control" placeholder="john.doe" aria-label="john.doe" required>
-                          </div>
-                        </div>
+
 
                         <div class="mb-3">
                           <label class="form-label" for="password">Password</label>
