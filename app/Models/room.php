@@ -13,7 +13,4 @@ class room extends Model
         'description',
     ];
 
-    protected $hidden = [
-        'password',
-    ];
 }

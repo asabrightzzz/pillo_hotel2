@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('app')->name('app.') ->group(function () {
 
-  Route::view('/', 'layout')->name('home');
-  // guest
+    Route::view('/', 'layout')->name('home');
+    // guest
     Route::resource('guest', GuestController::class);
     // Facility
     Route::resource('facility', FacilityController::class);
