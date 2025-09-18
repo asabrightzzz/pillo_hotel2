@@ -94,7 +94,7 @@
 
                 <ul class="menu-inner py-1">
                     <li class="menu-item {{ set_active(['/app']) }}">
-                        <a href="/app/dashboard" class="menu-link">
+                        <a href="/app" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home"></i>
                             <div data-i18n="Dashboard">Dashboard</div>
                         </a>
