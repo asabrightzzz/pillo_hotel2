@@ -140,6 +140,13 @@
                         </a>
                     </li>
 
+                    <li class="menu-item {{ set_active(['app/facilityn*']) }}">
+                        <a href="/app/facility" class="menu-link">
+                            <i class="fa-solid fa-hotel"></i>
+                            <div data-i18n="Facility">Facility</div>
+                        </a>
+                    </li>
+
                     <li class="menu-item {{ set_active(['app/employee*']) }}">
                         <a href="/app/employee" class="menu-link">
                             <i class="fas fa-user-tie"></i>

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->enum('status', ['available', 'occupied', 'maintenance', 'reserved']);
-            $table->foreignId('room_category_id')->constrained('room_categories')->cascadeOnDelete();
+            $table->foreignId('room_category_id');
             $table->string('description')->nullable();
             $table->timestamps();
         });
