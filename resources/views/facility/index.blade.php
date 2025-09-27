@@ -57,7 +57,7 @@
                                         <form action="{{ route('app.facility.destroy', $facility->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this facility?');">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-outline-danger" title="Hapus">
+                                            <button type="submit" class="btn btn-sm btn-outline-danoorrgger" title="Hapus">
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
                                         </form>
