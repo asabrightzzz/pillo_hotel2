@@ -33,16 +33,20 @@
                           </div>
                         </div>
 
+
+
                         <div class="mb-3">
                           <label class="form-label" for="password">Password</label>
                           <div class="input-group input-group-merge">
-                            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                            <span id="basic-icon-default-phone2" class="input-group-text"><i class="bx bx-phone"></i></span>
+                            <input type="password" id="password" name="password" class="form-control" placeholder="Password"  required>
                           </div>
                         </div>
 
                         <div class="mb-3">
                           <label class="form-label" for="gender">Gender</label>
                           <select name="gender" id="gender" class="form-select">
+                            <option value="" hidden>Gender</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                           </select>

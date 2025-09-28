@@ -7,12 +7,15 @@ use App\Http\Controllers\RoomCategoryFacilityController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\DashboardController;
 use App\Models\RoomCategory;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Route;
 
 
 Route::prefix('app')->name('app.') ->group(function () {
+
+    Route::resource('dashboard', DashboardController::class);
 
     Route::view('/', 'layout')->name('home');
     // guest

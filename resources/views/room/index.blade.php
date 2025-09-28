@@ -27,12 +27,19 @@
                             </select>
                         </div>
 
+                            <label class="form-label" for="status">Category Room</label>
+                        <select name="room_category_id" id="room_category_id" class="form-control mb-2" required>
+                            <option value="" hidden>Category</option>
+                            @foreach ($roomcategory as $ctry)
+                                <option value="{{ $ctry->id }}">{{ $ctry->name }}</option>
+                            @endforeach
+                        </select>
 
 
                         <div class="mb-3">
-                          <label class="form-label" for="password">Password</label>
+                          <label class="form-label" for="description">Description</label>
                           <div class="input-group input-group-merge">
-                            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                            <input type="description" id="description" name="description" class="form-control" placeholder="description" required>
                           </div>
                         </div>
 

@@ -2,21 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\room;
-use App\Models\roomcategory;
+use App\Models\dashboard;
 use Illuminate\Http\Request;
 
-class RoomController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-    $room = Room::all();
-    $roomcategory = RoomCategory::all();
-
-    return view('room.index', compact('room','roomcategory'));
+        //
     }
 
     /**
@@ -32,14 +28,13 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        Room::create($request->all());
-        return back();
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(room $room)
+    public function show(dashboard $dashboard)
     {
         //
     }
@@ -47,7 +42,7 @@ class RoomController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(room $room)
+    public function edit(dashboard $dashboard)
     {
         //
     }
@@ -55,21 +50,15 @@ class RoomController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, room $room)
+    public function update(Request $request, dashboard $dashboard)
     {
-        $room->name              = $request->name;
-        $room->status            = $request->status;
-        $room->room_category_id  = $request->room_category_id;
-        $room->description       = $request->description;
-        $room->update();
-
-        return redirect('room');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(room $room)
+    public function destroy(dashboard $dashboard)
     {
         //
     }
