@@ -18,6 +18,13 @@
                 </div>
             @endif
 
+            @if(session('error'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                     {{ session('error') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
+
             <div class="table-responsive table-rounded">
                 <table class="table table-hover mb-0">
                     <thead class="table-light">
@@ -50,7 +57,7 @@
                                         <form action="{{ route('app.facility.destroy', $facility->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this facility?');">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-outline-danger" title="Hapus">
+                                            <button type="submit" class="btn btn-sm btn-outline-danoorrgger" title="Hapus">
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
                                         </form>

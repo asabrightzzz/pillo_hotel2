@@ -76,6 +76,7 @@
 
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo pt-2">
+                    <a href="{{ route('app.home') }}" class="app-brand-link">
                     <a href="/app" class="app-brand-link">
                         <span class="app-brand-logo demo">
                             <img src="{{ asset('assets/img/logo/images.jpeg') }}" alt="Logo Pillo" width="70" />
@@ -94,7 +95,7 @@
 
                 <ul class="menu-inner py-1">
                     <li class="menu-item {{ set_active(['/app']) }}">
-                        <a href="/app/dashboard" class="menu-link">
+                        <a href="/app" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home"></i>
                             <div data-i18n="Dashboard">Dashboard</div>
                         </a>
@@ -111,6 +112,73 @@
                                     <div data-i18n="Room Category">Room Category</div>
                                 </a>
                             </li>
+                            <li class="menu-item">
+                                <a href="/app/reservation" class="menu-link">
+                                    <div class="text-truncate" data-i18n="Reservations">
+                                        Reservations
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-ecommerce-dashboard.html"
+                                    target="_blank" class="menu-link">
+                                    <div class="text-truncate" data-i18n="eCommerce">
+                                        eCommerce
+                                    </div>
+
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-logistics-dashboard.html"
+                                    target="_blank" class="menu-link">
+                                    <div class="text-truncate" data-i18n="Logistics">
+                                        Logistics
+                                    </div>
+
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-academy-dashboard.html"
+                                    target="_blank" class="menu-link">
+                                    <div class="text-truncate" data-i18n="Academy">Academy</div>
+
+                            <li class="menu-item {{ set_active(['app/room_category*']) }}">
+                                <a href="/app/room_category" class="menu-link">
+                                    <div class="text-truncate" data-i18n="Room Categories">
+                                        Room Categories
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="/reservation" class="menu-link">
+                                    <div class="text-truncate" data-i18n="Reservations">
+                                        Reservations
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-ecommerce-dashboard.html"
+                                    target="_blank" class="menu-link">
+                                    <div class="text-truncate" data-i18n="eCommerce">
+                                        eCommerce
+                                    </div>
+
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-logistics-dashboard.html"
+                                    target="_blank" class="menu-link">
+                                    <div class="text-truncate" data-i18n="Logistics">
+                                        Logistics
+                                    </div>
+
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-academy-dashboard.html"
+                                    target="_blank" class="menu-link">
+                                    <div class="text-truncate" data-i18n="Academy">Academy</div>
+
                             <li class="menu-item {{ set_active(['app/room_category_facility*']) }}">
                                 <a href="/app/room_category_facility" class="menu-link">
                                     <div data-i18n="Room Category Facility">Room Category Facility</div>
@@ -119,10 +187,17 @@
                         </ul>
                     </li>
 
+                    <!-- Apps & Pages -->
+                    <li class="menu-header small text-uppercase">
+                        <span class="menu-header-text">Apps &amp; Pages</span>
+                    </li>
                     <li class="menu-item {{ set_active(['app/room*']) }}">
                         <a href="/app/room" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-door-open"></i>
                             <div data-i18n="Room">Room</div>
+                        <a href="/app/facility" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-book-alt"></i>
+                            <div class="text-truncate" data-i18n="Facility">Facility</div>
                         </a>
                     </li>
 
