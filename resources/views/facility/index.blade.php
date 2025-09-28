@@ -51,14 +51,14 @@
                                 <td class="text-start">{{ $facility->description ?? 'No Description' }}</td>
                                 <td class="text-center">
                                     <div class="d-flex justify-content-center">
-                                        <a href="{{ route('app.facility.edit', $facility->id) }}" class="btn btn-sm btn-outline-primary me-2" title="Edit">
-                                            <i class="fas fa-edit"></i>
+                                        <a href="{{ route('app.facility.edit', $facility->id) }}" class="btn btn-sm btn-danger" title="Edit">
+                                            Edit
                                         </a>
                                         <form action="{{ route('app.facility.destroy', $facility->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this facility?');">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-outline-danoorrgger" title="Hapus">
-                                                <i class="fas fa-trash-alt"></i>
+                                            <button type="submit" class="btn btn-sm btn-warning ms-1" title="Delete">
+                                                Delete
                                             </button>
                                         </form>
                                     </div>

@@ -8,16 +8,25 @@ class RoomReservation extends Model
 {
     protected $table = 'room_reservations';
 
-     protected $fillable = [
+    protected $fillable = [
         'reservation_id', 
         'room_id', 
         'arrival', 
         'departure',
         'nights',
-        'adult',
+        'adults',
         'child',
         'infant',
-        'status',
         'roomrate',
     ];
+
+    public function reservation()
+    {
+        return $this->belongsTo(Reservation::class);
+    }
+    
+    public function room()
+    {
+        return $this->belongsTo(Room::class);
+    }
 }

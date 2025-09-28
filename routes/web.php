@@ -7,6 +7,7 @@ use App\Http\Controllers\RoomCategoryFacilityController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\RoomReservationController; 
 use App\Http\Controllers\DashboardController;
 use App\Models\RoomCategory;
 use App\Models\Reservation;
@@ -32,6 +33,8 @@ Route::prefix('app')->name('app.') ->group(function () {
     Route::resource('room_category', RoomCategoryController::class);
     // Room Category Facility
     Route::resource('room_category_facility', RoomCategoryFacilityController::class);
+    // Room Reservation
+      Route::resource('roomreservation', RoomReservationController::class);
 });
 
 // Menampilkan halaman utama
