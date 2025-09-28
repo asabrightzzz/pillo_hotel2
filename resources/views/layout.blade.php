@@ -60,10 +60,24 @@
     <script src="{{ asset('assets/js/toggle.js') }}"></script>
 
 
-    <style>.menu-item .menu-link i {
+    <style>
+    
+    .menu-item .menu-link i {
     margin-right: 10px;
     padding: 4px;
 }
+        .layout-menu.bg-dark .menu-link:hover {
+            background-color: rgba(173, 105, 255, 0.2) !important;
+        }
+
+        .layout-menu.bg-dark .menu-item.active > .menu-link:not(.menu-toggle) {
+            background-color: #9858e5 !important;
+            color: #fff !important;
+        }
+
+        .layout-menu.bg-dark .menu-item.active > .menu-link:not(.menu-toggle) .menu-icon {
+            color: #fff !important;
+        }
 </style>
 
 </head>
@@ -74,45 +88,45 @@
         <div class="layout-container">
             <!-- Menu -->
 
-            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme bg-dark">
                 <div class="app-brand demo pt-2">
                     <a href="/app" class="app-brand-link">
                         <span class="app-brand-logo demo">
-                            <img src="{{ asset('assets/img/logo/images.jpeg') }}" alt="Logo Pillo" width="70" />
+                            <img src="{{ asset('assets/img/logo/pilloanjay.png') }}" alt="Logo Pillo" width="70" />
                         </span>
-                        <span class="app-brand-text demo menu-text fw-bold ms-2">Pillo Hotel</span>
+                        <span class="app-brand-text demo menu-text fw-bold ms-2 text-white">Pillo Hotel</span>
                     </a>
 
-                    <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
+                    <a href="javascript:void(0);" class="menu-link text-large ms-auto">
                         <i class="bx bx-chevron-left d-block d-xl-none align-middle"></i>
                     </a>
                 </div>
 
-                <div class="menu-divider mt-0"></div>
+                <div class="menu-divider mt-3"></div>
 
                 <div class="menu-inner-shadow"></div>
 
                 <ul class="menu-inner py-1">
-                    <li class="menu-item {{ set_active(['/app']) }}">
-                        <a href="/app" class="menu-link">
+                    <li class="menu-item{{ set_active(['/app']) }}">
+                        <a href="/app" class="menu-link text-white">
                             <i class="menu-icon tf-icons bx bx-home"></i>
                             <div data-i18n="Dashboard">Dashboard</div>
                         </a>
                     </li>
 
                     <li class="menu-item {{ set_active(['app/room_category*', 'app/room_category_facility*']) }} {{ set_open(['app/room_category*', 'app/room_category_facility*']) }}">
-                        <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-building-house"></i>
+                        <a href="javascript:void(0);" class="menu-link menu-toggle text-white">
+                            <i class="menu-icon tf-icons bx bx-building-house "></i>
                             <div data-i18n="Room Category">Room Category</div>
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item {{ set_active(['app/room_category*']) }}">
-                                <a href="/app/room_category" class="menu-link">
+                                <a href="/app/room_category" class="menu-link text-white">
                                     <div data-i18n="Room Category">Room Category</div>
                                 </a>
                             </li>
                             <li class="menu-item {{ set_active(['app/room_category_facility*']) }}">
-                                <a href="/app/room_category_facility" class="menu-link">
+                                <a href="/app/room_category_facility" class="menu-link text-white">
                                     <div data-i18n="Room Category Facility">Room Category Facility</div>
                                 </a>
                             </li>
@@ -124,34 +138,34 @@
                         <span class="menu-header-text">Apps &amp; Pages</span>
                     </li>
                     <li class="menu-item {{ set_active(['app/room*']) }}">
-                        <a href="/app/room" class="menu-link">
+                        <a href="/app/room" class="menu-link text-white">
                             <i class="menu-icon tf-icons bx bx-door-open"></i>
                             <div data-i18n="Room">Room</div>
                         </a>
                     </li>
                     <li class="menu-item {{ set_active(['app/facility*']) }}">
-                        <a href="/app/facility" class="menu-link">
+                        <a href="/app/facility" class="menu-link text-white">
                             <i class="menu-icon tf-icons bx bx-book-alt"></i>
                             <div class="text-truncate" data-i18n="Facility">Facility</div>
                         </a>
                     </li>
 
                     <li class="menu-item {{ set_active(['app/guest*']) }}">
-                        <a href="/app/guest" class="menu-link">
+                        <a href="/app/guest" class="menu-link text-white">
                             <i class="fas fa-user"></i>
                             <div data-i18n="Guest">Guest</div>
                         </a>
                     </li>
 
                     <li class="menu-item {{ set_active(['app/reservation*']) }}">
-                        <a href="/app/reservation" class="menu-link">
+                        <a href="/app/reservation" class="menu-link text-white">
                             <i class="menu-icon tf-icons bx bx-book-bookmark"></i>
                             <div data-i18n="Reservation">Reservation</div>
                         </a>
                     </li>
 
                     <li class="menu-item {{ set_active(['app/employee*']) }}">
-                        <a href="/app/employee" class="menu-link">
+                        <a href="/app/employee" class="menu-link text-white">
                             <i class="fas fa-user-tie"></i>
                             <div data-i18n="Employee">Employee</div>
                         </a>
@@ -174,9 +188,7 @@
                         </a>
                     </div>
 
-                    <!-- PENGGANTI SEARCH BAR & USER PROFILE BARU -->
                     <div class="navbar-nav-right d-flex align-items-center w-100" id="navbar-collapse">
-                        <!-- Ini adalah elemen kosong untuk mendorong konten ke kanan (menggantikan search bar) -->
                         <div class="flex-grow-1"></div>
                         
                         <ul class="navbar-nav flex-row align-items-center ms-auto">
@@ -219,16 +231,6 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">
-                                            <span class="d-flex align-items-center align-middle">
-                                                <i
-                                                    class="flex-shrink-0 icon-base bx bx-credit-card icon-md me-3"></i><span
-                                                    class="flex-grow-1 align-middle">Billing Plan</span>
-                                                <span class="flex-shrink-0 badge rounded-pill bg-danger">4</span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
                                         <div class="dropdown-divider my-1"></div>
                                     </li>
                                     <li>
@@ -241,7 +243,6 @@
                             <!--/ User -->
                         </ul>
                     </div>
-                    <!-- AKHIR PENGGANTI SEARCH BAR & USER PROFILE BARU -->
                 </nav>
                 <!-- / Navbar -->
 
@@ -265,7 +266,7 @@
                                         document.write(new Date().getFullYear());
                                     </script>
                                     , made with ❤️ by
-                                    <a href="" target="_blank" class="footer-link">Metschool</a>
+                                    <a href="" target="_blank" class="footer-link">Metschoo PPLG</a>
                                 </div>
                             </div>
                         </div>
