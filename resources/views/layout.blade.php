@@ -15,7 +15,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/logo/images.jpeg') }}" />
+    <link rel="icon" type="image/x-xicon" href="{{ asset('assets/img/logo/images.jpeg') }}" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,7 +31,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
     <!-- Core CSS -->
-    <!-- build:css assets/vendor/css/theme.css  -->
+    <!-- build:css assets/vendor/css/theme.css  -->
 
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/core.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/demo.css') }}" />
@@ -51,7 +51,7 @@
     <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
 
-    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
 
     <script src="{{ asset('assets/vendor/js/config.js') }}"></script>
 
@@ -61,12 +61,18 @@
 
 
     <style>
-    
-    .menu-item .menu-link i {
-    margin-right: 10px;
-    padding: 4px;
-}
+        .menu-item .menu-link i {
+            margin-right: 10px;
+            padding: 4px;
+        }
+        
+        /* 1. HOVER State (Applies to all links on hover) */
         .layout-menu.bg-dark .menu-link:hover {
+            /* Ungu transparan */
+            background-color: rgba(173, 105, 255, 0.2) !important;
+        }
+
+        .layout-menu.bg-dark .menu-item.active > .menu-link.menu-toggle {
             background-color: rgba(173, 105, 255, 0.2) !important;
         }
 
@@ -78,7 +84,7 @@
         .layout-menu.bg-dark .menu-item.active > .menu-link:not(.menu-toggle) .menu-icon {
             color: #fff !important;
         }
-</style>
+    </style>
 
 </head>
 
@@ -114,7 +120,7 @@
                         </a>
                     </li>
 
-                    <li class="menu-item {{ set_active(['app/room_category*', 'app/room_category_facility*']) }} {{ set_open(['app/room_category*', 'app/room_category_facility*']) }}">
+                    <li class="menu-item {{ set_active(['app/room_category*']) }} {{ set_open(['app/room_category*', 'app/room_category_facility*']) }}">
                         <a href="javascript:void(0);" class="menu-link menu-toggle text-white">
                             <i class="menu-icon tf-icons bx bx-building-house "></i>
                             <div data-i18n="Room Category">Room Category</div>
