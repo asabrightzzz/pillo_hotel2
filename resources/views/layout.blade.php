@@ -28,7 +28,7 @@
 
     <!-- iocns -->
 
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
     <!-- Core CSS -->
     <!-- build:css assets/vendor/css/theme.css  -->
@@ -61,8 +61,8 @@
 
 
     <style>.menu-item .menu-link i {
-  margin-right: 10px;
-  padding: 4px;
+    margin-right: 10px;
+    padding: 4px;
 }
 </style>
 
@@ -76,7 +76,6 @@
 
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo pt-2">
-                    <a href="{{ route('app.home') }}" class="app-brand-link">
                     <a href="/app" class="app-brand-link">
                         <span class="app-brand-logo demo">
                             <img src="{{ asset('assets/img/logo/images.jpeg') }}" alt="Logo Pillo" width="70" />
@@ -124,10 +123,13 @@
                     <li class="menu-header small text-uppercase">
                         <span class="menu-header-text">Apps &amp; Pages</span>
                     </li>
-                    <li class="menu-item {{ set_active(['app/']) }}">
+                    <li class="menu-item {{ set_active(['app/room*']) }}">
                         <a href="/app/room" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-door-open"></i>
                             <div data-i18n="Room">Room</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ set_active(['app/facility*']) }}">
                         <a href="/app/facility" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-book-alt"></i>
                             <div class="text-truncate" data-i18n="Facility">Facility</div>
@@ -154,37 +156,37 @@
                             <div data-i18n="Employee">Employee</div>
                         </a>
 
+                    </li>
+
                 </ul>
             </aside>
             <!-- / Menu -->
 
             <!-- Layout container -->
             <div class="layout-page">
-                  <nav
-            class="layout-navbar container-xxl navbar-detached navbar navbar-expand-xl align-items-center bg-navbar-theme"
-            id="layout-navbar">
-            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-4 me-xl-0 d-xl-none">
-              <a class="nav-item nav-link px-0 me-xl-6" href="javascript:void(0)">
-                <i class="icon-base bx bx-menu icon-md"></i>
-              </a>
-            </div>
+                <!-- Navbar -->
+                <nav
+                    class="layout-navbar container-xxl navbar-detached navbar navbar-expand-xl align-items-center bg-navbar-theme"
+                    id="layout-navbar">
+                    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-4 me-xl-0 d-xl-none">
+                        <a class="nav-item nav-link px-0 me-xl-6" href="javascript:void(0)">
+                            <i class="icon-base bx bx-menu icon-md"></i>
+                        </a>
+                    </div>
 
-            <div class="navbar-nav-right d-flex align-items-center justify-content-end" id="navbar-collapse">
-              <!-- Search -->
-              <div class="navbar-nav align-items-center me-auto">
-                <div class="nav-item d-flex align-items-center">
-                  <span class="w-px-22 h-px-22"><i class="icon-base bx bx-search icon-md"></i></span>
-                  <input
-                    type="text"
-                    class="form-control border-0 shadow-none ps-1 ps-sm-2 d-md-block d-none"
-                    placeholder="Search..."
-                    aria-label="Search..." />
-                </div>
-                 </div>
-                    <div class="navbar-nav-right d-flex align-items-center justify-content-end" id="navbar-collapse">
-
-                        <ul class="navbar-nav flex-row align-items-center ms-md-auto">
-
+                    <!-- PENGGANTI SEARCH BAR & USER PROFILE BARU -->
+                    <div class="navbar-nav-right d-flex align-items-center w-100" id="navbar-collapse">
+                        <!-- Ini adalah elemen kosong untuk mendorong konten ke kanan (menggantikan search bar) -->
+                        <div class="flex-grow-1"></div>
+                        
+                        <ul class="navbar-nav flex-row align-items-center ms-auto">
+                            <!-- User -->
+                            <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                                    <div class="avatar avatar-online">
+                                        <img src="{{ asset('assets/img/avatars/1.png') }}" alt
+                                            class="w-px-40 h-auto rounded-circle" />
+                                    </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li>
@@ -239,8 +241,8 @@
                             <!--/ User -->
                         </ul>
                     </div>
+                    <!-- AKHIR PENGGANTI SEARCH BAR & USER PROFILE BARU -->
                 </nav>
-
                 <!-- / Navbar -->
 
                 <!-- Content wrapper -->
