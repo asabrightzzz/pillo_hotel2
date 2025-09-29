@@ -25,7 +25,7 @@
                         </div>
                         <div class="mb-2">
                             <select name="guest_id" id="guest_id" class="form-select">
-                                <option value="" hidden>-- Pilih Guest --</option>
+                                <option value="" hidden>-- Select Guest --</option>
                                 @foreach ($guests as $guest)
                                     <option value="{{ $guest->id }}" {{ $reservation->guest_id == $guest->id ? 'selected' : '' }}>{{ $guest->name }}</option>
                                 @endforeach
@@ -33,7 +33,7 @@
                         </div>
                         <div class="mb-2">
                             <select name="status" id="status" class="form-select">
-                                <option value="" hidden>-- Pilih Status --</option>
+                                <option value="" hidden>-- Select Status --</option>
                                 <option value="Booked" {{ $reservation->status == 'Booked' ? 'selected' : '' }}>
                                     Booked</option>
                                 <option value="Payment" {{ $reservation->status == 'Payment' ? 'selected' : '' }}>

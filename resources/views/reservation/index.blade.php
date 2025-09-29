@@ -18,22 +18,22 @@
                 <div class="col-6 col-lg-4">
                     <form action="/app/reservation" method="post">
                         @csrf
-                        <input type="text" class="form-control mb-2" name="code" placeholder="Masukkan Kode Reservasi"
+                        <input type="text" class="form-control mb-2" name="code" placeholder="Add Reservation Code"
                             required>
                         <select name="guest_id" id="guest_id" class="form-control mb-2" required>
-                            <option value="" hidden>-- Pilih Guest --</option>
+                            <option value="" hidden>-- Select Guest --</option>
                             @foreach ($guests as $guest)
                                 <option value="{{ $guest->id }}">{{ $guest->name }}</option>
                             @endforeach
                         </select>
                         <select name="status" id="status" class="form-control mb-2" required>
-                            <option value="" hidden>-- Pilih Status --</option>
+                            <option value="" hidden>-- Select Status --</option>
                             <option value="pending">Pending</option>
                             <option value="confirmed" selected>confirmed</option>
                             <option value="Checked in">Checked in</option>
                             <option value="Checked out">Checked out</option>
                         </select>
-                        <input type="text" class="form-control mb-2" name="voucher" placeholder="Masukkan Kode Voucher">
+                        <input type="text" class="form-control mb-2" name="voucher" placeholder="Add Voucher Code">
                         <div class="text-end">
                             <button class="btn btn-primary btn-sm">Submit</button>
                         </div>
