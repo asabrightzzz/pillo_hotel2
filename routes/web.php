@@ -9,10 +9,12 @@ use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\RoomReservationController; 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 use App\Models\RoomCategory;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('app')->name('app.') ->group(function () {
 
