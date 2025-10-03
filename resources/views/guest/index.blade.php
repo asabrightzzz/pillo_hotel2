@@ -62,7 +62,7 @@
                     <tr>
                         <th>No</th>
                         <th>Name</th>
-                        <th>Phone No</th>
+                        <th>Phone No</th> 
                         <th>ID Number</th>
                         <th>ID Photo</th>
                         <th>Action</th>

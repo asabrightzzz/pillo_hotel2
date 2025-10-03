@@ -12,7 +12,30 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        //
+        // Mengambil data untuk dashboard
+        $totalRooms = \App\Models\Room::count();
+        $availableRooms = \App\Models\Room::where('status', 'available')->count();
+        $occupiedRooms = \App\Models\Room::where('status', 'occupied')->count();
+        $totalReservations = \App\Models\Reservation::count();
+        $pendingReservations = \App\Models\Reservation::where('status', 'Pending')->count();
+        $confirmedReservations = \App\Models\Reservation::where('status', 'Confirmed')->count();
+        $checkedInReservations = \App\Models\Reservation::where('status', 'Checked_in')->count();
+        $totalGuests = \App\Models\Guest::count();
+        $latestReservations = \App\Models\Reservation::with('guest')->latest()->take(5)->get();
+        $roomCategories = \App\Models\RoomCategory::all();
+        
+        return view('dashboard', compact(
+            'totalRooms', 
+            'availableRooms', 
+            'occupiedRooms', 
+            'totalReservations', 
+            'pendingReservations', 
+            'confirmedReservations', 
+            'checkedInReservations', 
+            'totalGuests',
+            'latestReservations',
+            'roomCategories'
+        ));
     }
 
     /**
