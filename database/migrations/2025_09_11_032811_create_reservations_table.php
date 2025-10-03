@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('code');
             $table->foreignId('guest_id')->constrained('guests')->cascadeOnDelete();
-            $table->enum('status', ['pending', 'confirmed', 'checked_in', 'checked_out', 'cancelled']);
+            $table->enum('status', ['Pending', 'Confirmed', 'Checked_in', 'Checked_out', 'Cancelled']);
             $table->string('voucher')->nullable();
             $table->timestamps();
         });

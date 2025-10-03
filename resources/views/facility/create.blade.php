@@ -47,7 +47,11 @@
                 <input type="number" class="form-control" name="stock" id="stock" value="{{ old('stock') }}" placeholder="Stok">
             </div>
         </div>
-
+        <div class="mb-3">
+            <label class="form-label" for="stock">Consumable</label> 
+            <input type="checkbox" class="form-check-input" name="consumable">
+        </div>
+        
         <div class="mb-3">
             <label for="description" class="form-label">Description:</label>
             <textarea class="form-control" rows="2" id="description" name="description" placeholder="Optional"></textarea>

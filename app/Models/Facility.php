@@ -9,13 +9,14 @@ class Facility extends Model
     protected $fillable = [
         'name', 
         'type', 
+        'consumable', 
         'stock', 
         'description'
     ];
 
     public function roomCategories()
     {
-        return $this->belongsToMany(roomCategories::class, 'room_category_facility')->withPivot('qty')->withTimestamps();
+        return $this->belongsToMany(RoomCategory::class, 'room_category_facility')->withPivot('qty')->withTimestamps();
     }
 
     public function scopeRoom($query)

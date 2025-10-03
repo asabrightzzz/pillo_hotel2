@@ -36,8 +36,11 @@
                                 placeholder="Capacity" value="{{ $roomCategory->capacity }}">
                         </div>
                         <div class="mb-2">
-                            <input type="text" name="bed_setup" id="bed_setup" class="form-control"
-                                placeholder="Bed Setup" value="{{ $roomCategory->bed_setup }}">
+                            <select name="bed_setup" id="bed_setup" class="form-control">
+                                <option value="Single" {{ $roomCategory->bed_setup == 'Single' ? 'selected' : '' }}>Single</option>
+                                <option value="Queen" {{ $roomCategory->bed_setup == 'Queen' ? 'selected' : '' }}>Queen</option>
+                                <option value="King" {{ $roomCategory->bed_setup == 'King' ? 'selected' : '' }}>King</option>
+                            </select>
                         </div>
 
                         <div class="mb-2 text-end">

@@ -12,5 +12,10 @@ class room extends Model
         'room_category_id',
         'description',
     ];
+    public function roomCategory()
+    {
+        return $this->belongsTo(RoomCategory::class, 'room_category_id');
+    }
 
 }
+

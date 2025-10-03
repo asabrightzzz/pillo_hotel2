@@ -36,7 +36,8 @@
             <div class="input-group bed-setup-group">
               <select class="form-control" id="bed_setup" name="bed_setup" style="appearance: none;">
                 <option value="Single">Single</option>
-                <option value="Double">Double</option>
+                <option value="Queen">Queen</option>
+                <option value="King">King</option>
               </select>
               <span class="input-group-text bg-white bed-arrow">
                 <svg id="bed-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">

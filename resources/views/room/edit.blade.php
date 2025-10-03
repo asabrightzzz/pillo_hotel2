@@ -13,43 +13,48 @@
         <div class="col-lg-4">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="fw-bold mb-0">Edit Reservation</h4>
+                    <h4 class="fw-bold mb-0">Edit Room</h4>
                 </div>
                 <div class="card-body">
-                    <form action="/reservation/{{ $reservation->id }}" method="POST">
+                    <form action="/app/room/{{ $room->id }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="mb-2">
-                            <input type="text" name="code" id="code" class="form-control"
-                                placeholder="Code Reservation" value="{{ $reservation->code }}">
+                            <label class="form-label">Name</label>
+                            <input type="text" name="name" id="name" class="form-control"
+                                placeholder="Room Name" value="{{ $room->name }}">
                         </div>
                         <div class="mb-2">
-                            <select name="guest_id" id="guest_id" class="form-select">
-                                <option value="" hidden>-- Pilih Guest --</option>
-                                @foreach ($guests as $guest)
-                                    <option value="{{ $guest->id }}" {{ $reservation->guest_id == $guest->id ? 'selected' : '' }}>{{ $guest->name }}</option>
+                            <label class="form-label">Category</label>
+                            <select name="room_category_id" id="room_category_id" class="form-select">
+                                <option value="" hidden>-- Select Category --</option>
+                                @foreach($roomcategory as $category)
+                                    <option value="{{ $category->id }}" {{ $room->room_category_id == $category->id ? 'selected' : '' }}>
+                                        {{ $category->name }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="mb-2">
-                            <select name="status" id="status" class="form-select">
-                                <option value="" hidden>-- Pilih Status --</option>
-                                <option value="Booked" {{ $reservation->status == 'Booked' ? 'selected' : '' }}>
-                                    Booked</option>
-                                <option value="Payment" {{ $reservation->status == 'Payment' ? 'selected' : '' }}>
-                                    Payment</option>
-                                <option value="Check in" {{ $reservation->status == 'Check in' ? 'selected' : '' }}>
-                                    Check in</option>
-                                <option value="Check out" {{ $reservation->status == 'Check out' ? 'selected' : '' }}>Check
-                                    out</option>
-                            </select>
+                            <label class="form-label">Description</label>
+                            <textarea name="description" id="description" class="form-control" placeholder="Description">{{ $room->description }}</textarea>
                         </div>
                         <div class="mb-2">
-                            <input type="text" name="voucher" id="voucher" class="form-control" placeholder="Voucher"
-                                value="{{ $reservation->voucher }}">
+                            <label class="form-label">Status</label>
+                            <select name="status" id="status" class="form-select">
+                                <option value="" hidden>-- Select Status --</option>
+                                <option value="Available" {{ $room->status == 'Available' ? 'selected' : '' }}>
+                                    Available</option>
+                                <option value="Occupied" {{ $room->status == 'Occupied' ? 'selected' : '' }}>
+                                    Occupied</option>
+                                <option value="Maintenance" {{ $room->status == 'Maintenance' ? 'selected' : '' }}>
+                                    Maintenance</option>
+                                <option value="Reserved" {{ $room->status == 'Reserved' ? 'selected' : '' }}>
+                                    Reserved</option>
+                            </select>
                         </div>
                         <div class="mb-2 text-end">
-                            <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                            <button type="submit" class="btn btn-primary btn-sm">Save</button>
                         </div>
                     </form>
                 </div>
