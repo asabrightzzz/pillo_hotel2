@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\room_category_facility;
+use App\Models\RoomCategory;
+use App\Models\Facility;
 use Illuminate\Http\Request;
 
 class RoomCategoryFacilityController extends Controller
@@ -12,8 +14,10 @@ class RoomCategoryFacilityController extends Controller
      */
     public function index()
     {
-        $room_category_facility = room_category_facility::all();
-        return view('room_category_facility.index', compact('room_category_facility'));
+        $roomcategoryfacility = room_category_facility::all();
+        $roomCategories = RoomCategory::all();
+        $facility = facility::all();
+        return view('room_category_facility.index', compact('roomCategories', 'facility', 'roomcategoryfacility'));
     }
 
     /**
@@ -29,7 +33,20 @@ class RoomCategoryFacilityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'room_category_id' => 'required|exists:room_categories,id',
+            'facility_id' => 'required|exists:facilities,id',
+            'qty' => 'required|integer|min:1',
+        ]);
+
+        // Simpan ke database
+        room_category_facility::create([
+            'room_category_id' => $request->room_category_id,
+            'facility_id' => $request->facility_id,
+            'qty' => $request->qty ?? 1, 
+        ]);
+
+        return redirect()->back()->with('success', 'Data berhasil ditambahkan!');
     }
 
     /**
@@ -45,7 +62,9 @@ class RoomCategoryFacilityController extends Controller
      */
     public function edit(room_category_facility $room_category_facility)
     {
-        //
+        $roomCategories = RoomCategory::all();
+        $facility = facility::all();
+       return view('room_category_facility.edit', compact('roomCategories', 'facility', 'room_category_facility'));
     }
 
     /**
@@ -53,7 +72,12 @@ class RoomCategoryFacilityController extends Controller
      */
     public function update(Request $request, room_category_facility $room_category_facility)
     {
-        //
+        $room_category_facility->room_category_id      = $request->room_category_id;
+        $room_category_facility->facility_id           = $request->facility_id;
+        $room_category_facility->qty                   = $request->qty;
+        $room_category_facility->update();
+
+        return redirect('app/room_category_facility');
     }
 
     /**
@@ -61,6 +85,9 @@ class RoomCategoryFacilityController extends Controller
      */
     public function destroy(room_category_facility $room_category_facility)
     {
-        //
+        $room_category_facility->delete();
+
+        return back();
+
     }
 }
