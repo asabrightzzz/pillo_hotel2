@@ -87,7 +87,7 @@
                                     <th>#</th>
                                     <th>Reservation Code</th>
                                     <th>Room</th>
-                                    <th>Check In/Out</th>
+                                    <th>Status</th>
                                     <th>Nights</th>
                                     <th>Guest</th>
                                     <th>Rate</th>

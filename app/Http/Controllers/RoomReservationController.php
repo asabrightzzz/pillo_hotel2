@@ -70,7 +70,7 @@ class RoomReservationController extends Controller
         $redirectParams = $request->reservation_id ? ['reservation_id' => $request->reservation_id] : [];
         
         return redirect()->route('app.roomreservation.index', $redirectParams)
-            ->with('success', 'Reservasi Kamar berhasil ditambahkan!');
+            ->with('success', 'Room Reservation Added Successfully!');
     }
 
     /**
@@ -101,7 +101,7 @@ class RoomReservationController extends Controller
         $redirectParams = $room_reservation->reservation_id ? ['reservation_id' => $room_reservation->reservation_id] : [];
         
         return redirect()->route('app.roomreservation.index', $redirectParams)
-            ->with('success', 'Reservasi Kamar berhasil diperbarui!');
+            ->with('success', 'Room Reservation Update Successfully!');
     }
 
     /**
@@ -116,6 +116,6 @@ class RoomReservationController extends Controller
         $redirectParams = $reservationId ? ['reservation_id' => $reservationId] : [];
         
         return redirect()->route('app.roomreservation.index', $redirectParams)
-            ->with('success', 'Reservasi Kamar berhasil dihapus.');
+            ->with('success', 'Room Reservation Has been Deleted.');
     }
 }
