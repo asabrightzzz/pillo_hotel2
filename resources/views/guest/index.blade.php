@@ -61,7 +61,7 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach($guests as $gst)
+                @foreach($gusts as $gst)
                 <tr>
                   <td>{{ $loop->iteration }}</td>
                   <td>{{ $gst->name }}</td>
