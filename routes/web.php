@@ -14,7 +14,11 @@ use App\Models\RoomCategory;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::view('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/', function () {
+    return redirect('http://127.0.0.1:8081');
+});
 
 Route::prefix('app')->name('app.') ->group(function () {
 
