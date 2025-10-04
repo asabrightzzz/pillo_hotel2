@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->enum('status', ['available', 'occupied', 'maintenance', 'reserved']);
+            $table->enum('status', ['Available', 'Occupied', 'Maintenance', 'Reserved']);
             $table->foreignId('room_category_id');
             $table->string('description')->nullable();
             $table->timestamps();

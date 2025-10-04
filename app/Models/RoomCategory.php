@@ -14,4 +14,9 @@ class RoomCategory extends Model
         'capacity',
         'bed_setup',
     ];
+
+    public function facilities()
+    {
+        return $this->belongsToMany(Facility::class, 'room_category_facilities');
+    }
 }

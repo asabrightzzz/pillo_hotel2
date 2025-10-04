@@ -49,7 +49,8 @@ class RoomController extends Controller
      */
     public function edit(room $room)
     {
-        //
+        $roomcategory = RoomCategory::all();
+        return view('room.edit', compact('room','roomcategory'));
     }
 
     /**
@@ -63,7 +64,7 @@ class RoomController extends Controller
         $room->description       = $request->description;
         $room->update();
 
-        return redirect('room');
+        return redirect('app/room');
     }
 
     /**

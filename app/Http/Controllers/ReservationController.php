@@ -16,38 +16,55 @@ class ReservationController extends Controller
         // Variabel Guests berisikan Model Guest yang diperintahkan untuk mengambil semua data pada tabel guest
         $guests = Guest::all();
         $reservations = Reservation::all();
+        $today = now();
+        $datePart = $today->format('ymd');
+
+        $lastReservation = Reservation::whereDate('created_at', $today->toDateString())
+            ->orderBy('id', 'desc')
+            ->first();
+
+        $sequence = 1;
+        if ($lastReservation) {
+            $lastCode = $lastReservation->code;
+            // Ambil 3 karakter terakhir dari kode
+            $lastSequence = (int) substr($lastCode, -3);
+            $sequence = $lastSequence + 1;
+        }
+
+        $autoReservationCode = 3 . $datePart . sprintf('%03d', $sequence);
+
         // $reservations = Reservation::where('guest_id', 1)->get();
-        return view('reservation.index', compact('guests', 'reservations'));
+        return view('reservation.index', compact('guests', 'reservations', 'autoReservationCode'));
     }
-    
+
     /**
      * Show the form for creating a new resource.
-    */
+     */
     public function create()
     {
         //
     }
-    
+
     /**
      * Store a newly created resource in storage.
-    */
+     */
     public function store(Request $request)
     {
         Reservation::create($request->all());
         return back();
     }
-    
+
     /**
      * Display the specified resource.
-    */
+     */
     public function show(Reservation $reservation)
     {
         //
     }
-    
+
     /**
      * Show the form for editing the specified resource.
-    */
+     */
     public function edit(Reservation $reservation)
     {
         $guests = Guest::all();
@@ -65,7 +82,7 @@ class ReservationController extends Controller
         $reservation->voucher   = $request->voucher;
         $reservation->update();
 
-        return redirect('reservation');
+        return redirect('/app/reservation');
     }
 
     /**

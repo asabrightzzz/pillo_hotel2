@@ -24,7 +24,8 @@ Route::prefix('app')->name('app.') ->group(function () {
 
     Route::resource('dashboard', DashboardController::class);
 
-    Route::view('/', 'layout')->name('home');
+    // Route::view('/', 'dashboard')->name('home');
+    Route::get('/', [DashboardController::class, 'index']);
     // guest
     Route::resource('guest', GuestController::class);
     // Facility

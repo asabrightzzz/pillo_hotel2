@@ -12,8 +12,8 @@ class GuestController extends Controller
      */
     public function index()
     {
-    $guests = Guest::all();
-    return view('guest.index', compact('guests'));
+        $guests = Guest::all();
+        return view('guest.index', compact('guests'));
     }
 
     /**
@@ -21,7 +21,7 @@ class GuestController extends Controller
      */
     public function create()
     {
-       return view('guest.create');
+        return view('guest.create');
     }
 
     /**
@@ -29,8 +29,25 @@ class GuestController extends Controller
      */
     public function store(Request $request)
     {
-        Guest::create($request->all());
-        return back();
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|max:20',
+            'identity_number' => 'required|string|max:20',
+            'identity_photo' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+        ]);
+
+        // Upload foto identitas
+        $identityPhotoPath = $request->file('identity_photo')->store('identity_photos', 'public');
+
+        // Simpan data tamu ke database
+        Guest::create([
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'identity_number' => $request->identity_number,
+            'identity_photo' => $identityPhotoPath,
+        ]);
+
+        return back()->with('success', 'Data berhasil ditambahkan!');
     }
 
     /**
@@ -46,7 +63,7 @@ class GuestController extends Controller
      */
     public function edit(Guest $guest)
     {
-         return view('guest.edit', compact('guest'));
+        return view('guest.edit', compact('guest'));
     }
 
     /**
@@ -54,13 +71,20 @@ class GuestController extends Controller
      */
     public function update(Request $request, Guest $guest)
     {
-       $guest->name                  = $request->name;
+        $guest->name                  = $request->name;
         $guest->phone                = $request->phone;
         $guest->identity_number      = $request->identity_number;
-        $guest->identity_photo       = $request->identity_photo;
+        if ($request->hasFile('identity_photo')) {
+            // Hapus foto lama jika ada
+            if ($guest->identity_photo) {
+                \Illuminate\Support\Facades\Storage::disk('public')->delete($guest->identity_photo);
+            }
+            $identityPhotoPath = $request->file('identity_photo')->store('identity_photos', 'public');
+            $guest->identity_photo = $identityPhotoPath;
+        }
         $guest->update();
 
-        return redirect('guest');
+        return redirect('app/guest')->with('success', 'Data berhasil diupdate!');
     }
 
     /**

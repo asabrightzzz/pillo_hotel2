@@ -21,13 +21,16 @@ class FacilityController extends Controller
 
     public function store(Request $request)
     {
+        if($request->consumable == "on"){
+            $request['consumable'] = 1;
+        }
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'type' => 'required|in:room,public',
             'stock' => 'nullable|integer',
+            'consumable' => 'nullable',
             'description' => 'nullable|string'
         ]);
-
         Facility::create($validatedData);
         return redirect()->route('app.facility.index')->with('success', 'Facility Successfully added.');
     }

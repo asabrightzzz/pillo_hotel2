@@ -14,7 +14,9 @@ class RoomCategoryFacilityController extends Controller
      */
     public function index()
     {
-        $roomcategoryfacility = room_category_facility::all();
+        $roomcategoryfacility = room_category_facility::with(['RoomCategory', 'Facility'])
+            ->orderBy('room_category_id')
+            ->get();
         $roomCategories = RoomCategory::all();
         $facility = facility::all();
         return view('room_category_facility.index', compact('roomCategories', 'facility', 'roomcategoryfacility'));
@@ -38,12 +40,20 @@ class RoomCategoryFacilityController extends Controller
             'facility_id' => 'required|exists:facilities,id',
             'qty' => 'required|integer|min:1',
         ]);
+        // Cek apakah kombinasi room_category_id dan facility_id sudah ada
+        $exists = room_category_facility::where('room_category_id', $request->room_category_id)
+            ->where('facility_id', $request->facility_id)
+            ->exists();
+
+        if ($exists) {
+            return redirect()->back()->with('error', 'Fasilitas pada kamar sudah ada!');
+        }
 
         // Simpan ke database
         room_category_facility::create([
             'room_category_id' => $request->room_category_id,
             'facility_id' => $request->facility_id,
-            'qty' => $request->qty ?? 1, 
+            'qty' => $request->qty ?? 1,
         ]);
 
         return redirect()->back()->with('success', 'Data berhasil ditambahkan!');
@@ -64,7 +74,7 @@ class RoomCategoryFacilityController extends Controller
     {
         $roomCategories = RoomCategory::all();
         $facility = facility::all();
-       return view('room_category_facility.edit', compact('roomCategories', 'facility', 'room_category_facility'));
+        return view('room_category_facility.edit', compact('roomCategories', 'facility', 'room_category_facility'));
     }
 
     /**
@@ -88,6 +98,5 @@ class RoomCategoryFacilityController extends Controller
         $room_category_facility->delete();
 
         return back();
-
     }
 }

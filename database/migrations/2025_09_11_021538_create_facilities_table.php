@@ -12,6 +12,7 @@ return new class extends Migration {
             $table->string('name');
             $table->text('description')->nullable();
             $table->enum('type', ['room','public'])->default('room');
+            $table->integer('consumable')->nullable();
             $table->integer('stock')->nullable();
             $table->timestamps();
         });

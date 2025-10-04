@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>
         Pillo Kaliana
     </title>
@@ -65,23 +65,23 @@
             margin-right: 10px;
             padding: 4px;
         }
-        
+
         /* 1. HOVER State (Applies to all links on hover) */
         .layout-menu.bg-dark .menu-link:hover {
             /* Ungu transparan */
             background-color: rgba(173, 105, 255, 0.2) !important;
         }
 
-        .layout-menu.bg-dark .menu-item.active > .menu-link.menu-toggle {
+        .layout-menu.bg-dark .menu-item.active>.menu-link.menu-toggle {
             background-color: rgba(173, 105, 255, 0.2) !important;
         }
 
-        .layout-menu.bg-dark .menu-item.active > .menu-link:not(.menu-toggle) {
+        .layout-menu.bg-dark .menu-item.active>.menu-link:not(.menu-toggle) {
             background-color: #9858e5 !important;
             color: #fff !important;
         }
 
-        .layout-menu.bg-dark .menu-item.active > .menu-link:not(.menu-toggle) .menu-icon {
+        .layout-menu.bg-dark .menu-item.active>.menu-link:not(.menu-toggle) .menu-icon {
             color: #fff !important;
         }
     </style>
@@ -120,13 +120,19 @@
                         </a>
                     </li>
 
-                    <li class="menu-item {{ set_active(['app/room_category*']) }} {{ set_open(['app/room_category*', 'app/room_category_facility*']) }}">
+
+                    <!-- Apps & Pages -->
+                    <li class="menu-header small text-uppercase">
+                        <span class="menu-header-text">Apps &amp; Pages</span>
+                    </li>
+                    <li
+                        class="menu-item {{ set_active(['app/room_category*']) }} {{ set_open(['app/room_category*', 'app/room_category_facility*']) }}">
                         <a href="javascript:void(0);" class="menu-link menu-toggle text-white">
                             <i class="menu-icon tf-icons bx bx-building-house "></i>
                             <div data-i18n="Room Category">Room Category</div>
                         </a>
                         <ul class="menu-sub">
-                            <li class="menu-item {{ set_active(['app/room_category*']) }}">
+                            <li class="menu-item {{ set_active(['app/room_category']) }}">
                                 <a href="/app/room_category" class="menu-link text-white">
                                     <div data-i18n="Room Category">Room Category</div>
                                 </a>
@@ -137,11 +143,6 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
-
-                    <!-- Apps & Pages -->
-                    <li class="menu-header small text-uppercase">
-                        <span class="menu-header-text">Apps &amp; Pages</span>
                     </li>
                     <li class="menu-item {{ set_active(['app/room*']) }}">
                         <a href="/app/room" class="menu-link text-white">
@@ -185,8 +186,7 @@
             <!-- Layout container -->
             <div class="layout-page">
                 <!-- Navbar -->
-                <nav
-                    class="layout-navbar container-xxl navbar-detached navbar navbar-expand-xl align-items-center bg-navbar-theme"
+                <nav class="layout-navbar container-xxl navbar-detached navbar navbar-expand-xl align-items-center bg-navbar-theme"
                     id="layout-navbar">
                     <div class="layout-menu-toggle navbar-nav align-items-xl-center me-4 me-xl-0 d-xl-none">
                         <a class="nav-item nav-link px-0 me-xl-6" href="javascript:void(0)">
@@ -196,11 +196,12 @@
 
                     <div class="navbar-nav-right d-flex align-items-center w-100" id="navbar-collapse">
                         <div class="flex-grow-1"></div>
-                        
+
                         <ul class="navbar-nav flex-row align-items-center ms-auto">
                             <!-- User -->
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
-                                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
+                                    data-bs-toggle="dropdown">
                                     <div class="avatar avatar-online">
                                         <img src="{{ asset('assets/img/avatars/1.png') }}" alt
                                             class="w-px-40 h-auto rounded-circle" />
