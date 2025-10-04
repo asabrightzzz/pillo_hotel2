@@ -53,7 +53,7 @@
                                 <select name="room_id" id="room_id" class="form-select shadow-sm" required>
                                     <option value="" hidden>-- Select Room --</option>
                                     @foreach ($rooms as $room)
-                                        <option value="{{ $room->id }}" data-price="{{ $room->category->price ?? 0 }}"
+                                        <option value="{{ $room->id }}" data-price="{{ $room->roomCategory->price ?? 0 }}"
                                             {{ isset($selectedRoomId) && $selectedRoomId == $room->id ? 'selected' : '' }}>
                                             {{ $room->name ?? 'N/A' }}</option>
                                     @endforeach
@@ -114,19 +114,19 @@
                             </div>
 
                             <div class="mb-4">
-                                <label for="roomrate" class="form-label fw-bold">Room Rate (per Night)</label>
+                                <label for="roomratenights" class="form-label fw-bold">Room Rate (per Night)</label>
                                 <div class="input-group shadow-sm">
                                     <span class="input-group-text bg-light">Rp</span>
-                                    <input type="number" name="roomrate" id="roomrate" class="form-control"
+                                    <input type="number" name="roomratenights" id="roomratenights" class="form-control"
                                         placeholder="Auto-filled from room category" readonly required>
                                 </div>
                             </div>
 
                             <div class="mb-4">
-                                <label for="total_rate" class="form-label fw-bold">Total Rate</label>
+                                <label for="roomrate" class="form-label fw-bold">Total Rate</label>
                                 <div class="input-group shadow-sm">
                                     <span class="input-group-text bg-light">Rp</span>
-                                    <input type="number" name="total_rate" id="total_rate" class="form-control"
+                                    <input type="number" name="roomrate" id="roomrate" class="form-control"
                                         readonly>
                                 </div>
                             </div>
@@ -135,25 +135,25 @@
                                 function calcTotal() {
                                     const arrival = new Date(document.getElementById('arrival').value);
                                     const departure = new Date(document.getElementById('departure').value);
-                                    const rate = parseFloat(document.getElementById('roomrate').value) || 0;
+                                    const rate = parseFloat(document.getElementById('roomratenights').value) || 0;
                                     if (!isNaN(arrival) && !isNaN(departure) && departure > arrival) {
                                         const nights = Math.ceil((departure - arrival) / (1000 * 60 * 60 * 24));
                                         document.getElementById('total_nights').value = nights;
-                                        document.getElementById('total_rate').value = nights * rate;
+                                        document.getElementById('roomrate').value = nights * rate;
                                     } else {
                                         document.getElementById('total_nights').value = '';
-                                        document.getElementById('total_rate').value = '';
+                                        document.getElementById('roomrate').value = '';
                                     }
                                 }
                                 document.getElementById('arrival').addEventListener('change', calcTotal);
                                 document.getElementById('departure').addEventListener('change', calcTotal);
-                                document.getElementById('roomrate').addEventListener('input', calcTotal);
+                                document.getElementById('roomratenights').addEventListener('input', calcTotal);
 
                                 // Auto-fill room rate when room is selected
                                 document.getElementById('room_id').addEventListener('change', function() {
                                     const selected = this.options[this.selectedIndex];
                                     const price = selected.getAttribute('data-price') || 0;
-                                    document.getElementById('roomrate').value = price;
+                                    document.getElementById('roomratenights').value = price;
                                     calcTotal();
                                 });
                             </script>
@@ -220,7 +220,7 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <div class="fw-bold">Rp {{ number_format($rr->roomrate, 0, ',', '.') }}
+                                                <div class="fw-bold">Rp {{ number_format($rr->total_rate, 0, ',', '.') }}
                                                 </div>
                                                 <div class="small text-muted">per night</div>
                                             </td>
@@ -230,7 +230,7 @@
                                                         class="btn btn-sm btn-warning">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
-                                                    <form action="{{ route('app.roomreservation.destroy', $rr->id) }}"
+                                                    <form action="/app/roomreservation/{{ $rr->id }}"
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
@@ -257,14 +257,20 @@
             const arrivalInput = document.getElementById('arrival');
             const departureInput = document.getElementById('departure');
 
+            // Set min date for arrival to today (disable past dates)
+            const today = new Date().toISOString().split('T')[0];
+            arrivalInput.setAttribute('min', today);
+
             arrivalInput.addEventListener('change', function() {
                 const arrivalDate = new Date(this.value);
                 if (!isNaN(arrivalDate)) {
-                    // Disable departure dates before arrival
-                    const arrivalISO = arrivalDate.toISOString().split('T')[0];
-                    departureInput.setAttribute('min', arrivalISO);
-                    // Reset departure if it's before the new arrival
-                    if (departureInput.value && new Date(departureInput.value) < arrivalDate) {
+                    // Disable departure dates before or on arrival
+                    const departureMin = new Date(arrivalDate);
+                    departureMin.setDate(departureMin.getDate() + 1);
+                    const departureMinISO = departureMin.toISOString().split('T')[0];
+                    departureInput.setAttribute('min', departureMinISO);
+                    // Reset departure if it's before or on the new arrival
+                    if (departureInput.value && new Date(departureInput.value) <= arrivalDate) {
                         departureInput.value = '';
                     }
                 }

@@ -81,9 +81,9 @@ class RoomReservationController extends Controller
 
     public function destroy(RoomReservation $room_reservation)
     {
+        dd($room_reservation);        
         $reservationId = $room_reservation->reservation_id;
         $room_reservation->delete();
-        
         $redirectParams = $reservationId ? ['reservation_id' => $reservationId] : [];
         
         return redirect()->route('app.roomreservation.index', $redirectParams)
