@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 // Route::view('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/', function () {
-    return redirect('http://127.0.0.1:8081');
+    return redirect('http://127.0.0.1:8082');
 });
 
 Route::prefix('app')->name('app.') ->group(function () {
