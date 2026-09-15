@@ -28,7 +28,6 @@ class RoomReservationController extends Controller
         }
 
         $roomReservations = $query->get();
-
         $reservations = Reservation::all(); 
         $rooms = Room::all();
 
@@ -42,9 +41,25 @@ class RoomReservationController extends Controller
 
     public function store(Request $request)
     {
-        $arrival = new \DateTime($request->arrival);
-        $departure = new \DateTime($request->departure);
-        $nights = $arrival->diff($departure)->days;
+        $request->validate([
+            'reservation_id' => 'required|exists:reservations,id',
+            'room_id' => 'required|exists:rooms,id',
+            'arrival' => 'required|date',
+            'departure' => 'required|date|after_or_equal:arrival',
+            'adults' => 'required|integer|min:1',
+            'roomrate' => 'required|numeric',
+        ]);
+
+        $nights = 1;
+        if ($request->filled('arrival') && $request->filled('departure')) {
+            try {
+                $arrival = new \DateTime($request->arrival);
+                $departure = new \DateTime($request->departure);
+                $nights = max(1, $arrival->diff($departure)->days);
+            } catch (\Exception $e) {
+                $nights = 1;
+            }
+        }
 
         $data = $request->all();
         $data['nights'] = $nights;
@@ -57,33 +72,49 @@ class RoomReservationController extends Controller
             ->with('success', 'Room Reservation Added Successfully!');
     }
 
-    public function edit(RoomReservation $room_reservation)
+    public function edit(RoomReservation $roomreservation)
     {
+        $room_reservation = $roomreservation;
         $reservations = Reservation::all();
         $rooms = Room::all();
         
         return view('roomreservation.edit', compact('room_reservation', 'reservations', 'rooms'));
     }
 
-    public function update(Request $request, RoomReservation $room_reservation)
+    public function update(Request $request, RoomReservation $roomreservation)
     {
-        $arrival = new \DateTime($request->arrival);
-        $departure = new \DateTime($request->departure);
-        $nights = $arrival->diff($departure)->days;
+        $request->validate([
+            'reservation_id' => 'required|exists:reservations,id',
+            'room_id' => 'required|exists:rooms,id',
+            'arrival' => 'required|date',
+            'departure' => 'required|date|after_or_equal:arrival',
+            'adults' => 'required|integer|min:1',
+            'roomrate' => 'required|numeric',
+        ]);
 
-        $room_reservation->update($request->all() + ['nights' => $nights]);
+        $nights = 1;
+        if ($request->filled('arrival') && $request->filled('departure')) {
+            try {
+                $arrival = new \DateTime($request->arrival);
+                $departure = new \DateTime($request->departure);
+                $nights = max(1, $arrival->diff($departure)->days);
+            } catch (\Exception $e) {
+                $nights = 1;
+            }
+        }
 
-        $redirectParams = $room_reservation->reservation_id ? ['reservation_id' => $room_reservation->reservation_id] : [];
+        $roomreservation->update($request->all() + ['nights' => $nights]);
+
+        $redirectParams = $roomreservation->reservation_id ? ['reservation_id' => $roomreservation->reservation_id] : [];
         
         return redirect()->route('app.roomreservation.index', $redirectParams)
-            ->with('success', 'Room Reservation Update Successfully!');
+            ->with('success', 'Room Reservation Updated Successfully!');
     }
 
-    public function destroy(RoomReservation $room_reservation)
+    public function destroy(RoomReservation $roomreservation)
     {
-        dd($room_reservation);        
-        $reservationId = $room_reservation->reservation_id;
-        $room_reservation->delete();
+        $reservationId = $roomreservation->reservation_id;
+        $roomreservation->delete();
         $redirectParams = $reservationId ? ['reservation_id' => $reservationId] : [];
         
         return redirect()->route('app.roomreservation.index', $redirectParams)

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\room_category_facility;
+use App\Models\RoomCategoryFacility;
 use App\Models\RoomCategory;
 use App\Models\Facility;
 use Illuminate\Http\Request;
@@ -14,11 +14,12 @@ class RoomCategoryFacilityController extends Controller
      */
     public function index()
     {
-        $roomcategoryfacility = room_category_facility::with(['RoomCategory', 'Facility'])
+        $roomcategoryfacility = RoomCategoryFacility::with(['roomCategory', 'facility'])
             ->orderBy('room_category_id')
             ->get();
         $roomCategories = RoomCategory::all();
-        $facility = facility::all();
+        $facility = Facility::all();
+
         return view('room_category_facility.index', compact('roomCategories', 'facility', 'roomcategoryfacility'));
     }
 
@@ -27,7 +28,7 @@ class RoomCategoryFacilityController extends Controller
      */
     public function create()
     {
-        //
+        return redirect()->route('app.room_category_facility.index');
     }
 
     /**
@@ -40,63 +41,70 @@ class RoomCategoryFacilityController extends Controller
             'facility_id' => 'required|exists:facilities,id',
             'qty' => 'required|integer|min:1',
         ]);
-        // Cek apakah kombinasi room_category_id dan facility_id sudah ada
-        $exists = room_category_facility::where('room_category_id', $request->room_category_id)
+
+        $exists = RoomCategoryFacility::where('room_category_id', $request->room_category_id)
             ->where('facility_id', $request->facility_id)
             ->exists();
 
         if ($exists) {
-            return redirect()->back()->with('error', 'Fasilitas pada kamar sudah ada!');
+            return redirect()->back()->with('error', 'Fasilitas pada kategori kamar ini sudah ada!');
         }
 
-        // Simpan ke database
-        room_category_facility::create([
+        RoomCategoryFacility::create([
             'room_category_id' => $request->room_category_id,
             'facility_id' => $request->facility_id,
             'qty' => $request->qty ?? 1,
         ]);
 
-        return redirect()->back()->with('success', 'Data berhasil ditambahkan!');
+        return redirect()->back()->with('success', 'Fasilitas kategori kamar berhasil ditambahkan!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(room_category_facility $room_category_facility)
+    public function show(RoomCategoryFacility $room_category_facility)
     {
-        //
+        return redirect()->route('app.room_category_facility.edit', $room_category_facility->id);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(room_category_facility $room_category_facility)
+    public function edit(RoomCategoryFacility $room_category_facility)
     {
         $roomCategories = RoomCategory::all();
-        $facility = facility::all();
+        $facility = Facility::all();
+
         return view('room_category_facility.edit', compact('roomCategories', 'facility', 'room_category_facility'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, room_category_facility $room_category_facility)
+    public function update(Request $request, RoomCategoryFacility $room_category_facility)
     {
-        $room_category_facility->room_category_id      = $request->room_category_id;
-        $room_category_facility->facility_id           = $request->facility_id;
-        $room_category_facility->qty                   = $request->qty;
-        $room_category_facility->update();
+        $request->validate([
+            'room_category_id' => 'required|exists:room_categories,id',
+            'facility_id' => 'required|exists:facilities,id',
+            'qty' => 'required|integer|min:1',
+        ]);
 
-        return redirect('app/room_category_facility');
+        $room_category_facility->update([
+            'room_category_id' => $request->room_category_id,
+            'facility_id' => $request->facility_id,
+            'qty' => $request->qty,
+        ]);
+
+        return redirect()->route('app.room_category_facility.index')->with('success', 'Fasilitas kategori kamar berhasil diupdate!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(room_category_facility $room_category_facility)
+    public function destroy(RoomCategoryFacility $room_category_facility)
     {
         $room_category_facility->delete();
 
-        return back();
+        return back()->with('success', 'Fasilitas kategori kamar berhasil dihapus!');
     }
 }

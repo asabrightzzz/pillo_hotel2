@@ -8,7 +8,7 @@
                     <h3 class="mb-0 fw-bold mx-3">Edit Room Reservation</h3>
                     <hr>
                     <div class="bg-white p-4 rounded shadow-sm">
-                        <form action="/app/roomreservation{{ $room_reservation->id }}" method="POST">
+                        <form action="{{ route('app.roomreservation.update', $room_reservation->id) }}" method="POST">
                             @csrf
                             @method('PUT')
                             

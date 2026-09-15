@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->integer('code');
+            $table->string('code', 32);
             $table->foreignId('guest_id')->constrained('guests')->cascadeOnDelete();
             $table->enum('status', ['Pending', 'Confirmed', 'Checked_in', 'Checked_out', 'Cancelled']);
             $table->string('voucher')->nullable();

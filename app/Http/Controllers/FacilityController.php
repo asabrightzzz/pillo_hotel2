@@ -21,16 +21,15 @@ class FacilityController extends Controller
 
     public function store(Request $request)
     {
-        if($request->consumable == "on"){
-            $request['consumable'] = 1;
-        }
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'type' => 'required|in:room,public',
             'stock' => 'nullable|integer',
-            'consumable' => 'nullable',
             'description' => 'nullable|string'
         ]);
+
+        $validatedData['consumable'] = ($request->has('consumable') && in_array($request->consumable, ['on', '1', 1, true], true)) ? 1 : 0;
+
         Facility::create($validatedData);
         return redirect()->route('app.facility.index')->with('success', 'Facility Successfully added.');
     }
@@ -49,6 +48,8 @@ class FacilityController extends Controller
             'description' => 'nullable|string'
         ]);
 
+        $validatedData['consumable'] = ($request->has('consumable') && in_array($request->consumable, ['on', '1', 1, true], true)) ? 1 : 0;
+
         $facility->update($validatedData);
         return redirect()->route('app.facility.index')->with('success', 'Facility Successfully Updated.');
     }
@@ -56,6 +57,6 @@ class FacilityController extends Controller
     public function destroy(Facility $facility)
     {
         $facility->delete();
-        return redirect()->route('app.facility.index')->with('success', 'Facility Successfully Deleted .');
+        return redirect()->route('app.facility.index')->with('success', 'Facility Successfully Deleted.');
     }
 }

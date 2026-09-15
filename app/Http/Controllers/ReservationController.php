@@ -13,9 +13,8 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        // Variabel Guests berisikan Model Guest yang diperintahkan untuk mengambil semua data pada tabel guest
         $guests = Guest::all();
-        $reservations = Reservation::all();
+        $reservations = Reservation::with('guest')->latest()->get();
         $today = now();
         $datePart = $today->format('ymd');
 
@@ -24,16 +23,14 @@ class ReservationController extends Controller
             ->first();
 
         $sequence = 1;
-        if ($lastReservation) {
-            $lastCode = $lastReservation->code;
-            // Ambil 3 karakter terakhir dari kode
+        if ($lastReservation && !empty($lastReservation->code)) {
+            $lastCode = (string) $lastReservation->code;
             $lastSequence = (int) substr($lastCode, -3);
             $sequence = $lastSequence + 1;
         }
 
-        $autoReservationCode = 3 . $datePart . sprintf('%03d', $sequence);
+        $autoReservationCode = '3' . $datePart . sprintf('%03d', $sequence);
 
-        // $reservations = Reservation::where('guest_id', 1)->get();
         return view('reservation.index', compact('guests', 'reservations', 'autoReservationCode'));
     }
 
@@ -42,7 +39,7 @@ class ReservationController extends Controller
      */
     public function create()
     {
-        //
+        return redirect()->route('app.reservation.index');
     }
 
     /**
@@ -50,8 +47,15 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        Reservation::create($request->all());
-        return back();
+        $validated = $request->validate([
+            'code' => 'required|string|max:32',
+            'guest_id' => 'required|exists:guests,id',
+            'status' => 'required|in:Pending,Confirmed,Checked_in,Checked_out,Cancelled',
+            'voucher' => 'nullable|string|max:255',
+        ]);
+
+        Reservation::create($validated);
+        return back()->with('success', 'Reservation added successfully!');
     }
 
     /**
@@ -59,7 +63,7 @@ class ReservationController extends Controller
      */
     public function show(Reservation $reservation)
     {
-        //
+        return redirect()->route('app.reservation.edit', $reservation->id);
     }
 
     /**
@@ -76,13 +80,16 @@ class ReservationController extends Controller
      */
     public function update(Request $request, Reservation $reservation)
     {
-        $reservation->code      = $request->code;
-        $reservation->guest_id  = $request->guest_id;
-        $reservation->status    = $request->status;
-        $reservation->voucher   = $request->voucher;
-        $reservation->update();
+        $validated = $request->validate([
+            'code' => 'required|string|max:32',
+            'guest_id' => 'required|exists:guests,id',
+            'status' => 'required|in:Pending,Confirmed,Checked_in,Checked_out,Cancelled',
+            'voucher' => 'nullable|string|max:255',
+        ]);
 
-        return redirect('/app/reservation');
+        $reservation->update($validated);
+
+        return redirect()->route('app.reservation.index')->with('success', 'Reservation updated successfully!');
     }
 
     /**
@@ -92,6 +99,6 @@ class ReservationController extends Controller
     {
         $reservation->delete();
 
-        return back();
+        return back()->with('success', 'Reservation deleted successfully!');
     }
 }

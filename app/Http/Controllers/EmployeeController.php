@@ -12,8 +12,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-    $employee = Employee::all();
-    return view('employee.index', compact('employee'));
+        $employee = Employee::all();
+        return view('employee.index', compact('employee'));
     }
 
     /**
@@ -29,9 +29,17 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        Employee::create($request->all());
-        return back();
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|max:20',
+            'email' => 'required|email|max:255',
+            'gender' => 'required|in:Male,Female',
+            'password' => 'required|string|min:6',
+        ]);
 
+        Employee::create($validated);
+
+        return back()->with('success', 'Employee added successfully!');
     }
 
     /**
@@ -39,7 +47,7 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        //
+        return redirect()->route('app.employee.edit', $employee->id);
     }
 
     /**
@@ -55,14 +63,21 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
-        $employee->name         = $request->name;
-        $employee->phone        = $request->phone;
-        $employee->email        = $request->email;
-        $employee->password     = $request->password;
-        $employee->gender       = $request->gender;
-        $employee->update();
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|max:20',
+            'email' => 'required|email|max:255',
+            'gender' => 'required|in:Male,Female',
+            'password' => 'nullable|string|min:6',
+        ]);
 
-        return redirect('/app/employee');
+        if (empty($validated['password'])) {
+            unset($validated['password']);
+        }
+
+        $employee->update($validated);
+
+        return redirect()->route('app.employee.index')->with('success', 'Employee updated successfully!');
     }
 
     /**
@@ -72,6 +87,6 @@ class EmployeeController extends Controller
     {
         $employee->delete();
 
-        return back();
+        return redirect()->route('app.employee.index')->with('success', 'Employee deleted successfully!');
     }
 }
