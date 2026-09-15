@@ -1,0 +1,11 @@
+node_modules
+vendor
+.git
+.gitignore
+.env
+.env.*
+storage/*.key
+storage/logs/*.log
+public/storage
+public/build
+tests
