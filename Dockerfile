@@ -11,7 +11,7 @@ RUN npm run build
 # ==========================================
 # Stage 2: Production PHP Runtime
 # ==========================================
-FROM dunglas/frankenphp:latest-php8.4-alpine AS production
+FROM dunglas/frankenphp:php8.4-alpine AS production
 
 # Install PHP extensions required by Laravel
 RUN install-php-extensions \
