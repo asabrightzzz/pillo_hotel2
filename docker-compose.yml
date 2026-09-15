@@ -8,14 +8,21 @@ services:
     restart: unless-stopped
     ports:
       - "8080:8080"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     environment:
       APP_NAME: "Pillo Hotel"
       APP_ENV: production
       APP_DEBUG: "false"
       APP_KEY: "${APP_KEY:-base64:DRZoojn349NKCShTDdXCVvPjuO6HEe1rwECJiNmJiro=}"
       APP_URL: "${APP_URL:-http://localhost:8080}"
-      DB_CONNECTION: sqlite
-      DB_DATABASE: /app/database/database.sqlite
+      # PostgreSQL configuration (connects to ZimaOS host PostgreSQL)
+      DB_CONNECTION: "${DB_CONNECTION:-pgsql}"
+      DB_HOST: "${DB_HOST:-host.docker.internal}"
+      DB_PORT: "${DB_PORT:-5432}"
+      DB_DATABASE: "${DB_DATABASE:-pillo_hotel}"
+      DB_USERNAME: "${DB_USERNAME:-casaos}"
+      DB_PASSWORD: "${DB_PASSWORD:-casaos}"
       SESSION_DRIVER: database
       QUEUE_CONNECTION: sync
     volumes:

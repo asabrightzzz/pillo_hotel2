@@ -13,15 +13,20 @@ RUN npm run build
 # ==========================================
 FROM dunglas/frankenphp:php8.4-alpine AS production
 
-# Install PHP extensions required by Laravel
+# Install PHP extensions required by Laravel (including PostgreSQL, SQLite, MySQL)
 RUN install-php-extensions \
     pdo_sqlite \
     pdo_mysql \
+    pdo_pgsql \
+    pgsql \
     intl \
     gd \
     zip \
     bcmath \
     opcache
+
+# Copy Composer binary from official Composer image
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /app
 
