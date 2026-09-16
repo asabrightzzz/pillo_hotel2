@@ -34,8 +34,8 @@
     <!-- build:css assets/vendor/css/theme.css  -->
 
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/core.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/vendor/css/demo.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/vendor/css/smooth_toggle.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/demo.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/smooth_toggle.css') }}" />
 
     <!-- Vendors CSS -->
 
@@ -51,11 +51,9 @@
     <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
 
-    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
 
-    <script src="{{ asset('assets/vendor/js/config.js') }}"></script>
-
-    <script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
+    <script src="{{ asset('assets/js/config.js') }}"></script>
 
     <script src="{{ asset('assets/js/toggle.js') }}"></script>
 
@@ -103,7 +101,7 @@
                         <span class="app-brand-text demo menu-text fw-bold ms-2 text-white">Pillo Hotel</span>
                     </a>
 
-                    <a href="javascript:void(0);" class="menu-link text-large ms-auto">
+                    <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto" onclick="event.preventDefault();">
                         <i class="bx bx-chevron-left d-block d-xl-none align-middle"></i>
                     </a>
                 </div>
@@ -189,7 +187,7 @@
                 <nav class="layout-navbar container-xxl navbar-detached navbar navbar-expand-xl align-items-center bg-navbar-theme"
                     id="layout-navbar">
                     <div class="layout-menu-toggle navbar-nav align-items-xl-center me-4 me-xl-0 d-xl-none">
-                        <a class="nav-item nav-link px-0 me-xl-6" href="javascript:void(0)">
+                        <a class="nav-item nav-link px-0 me-xl-6" href="javascript:void(0);" onclick="event.preventDefault();">
                             <i class="icon-base bx bx-menu icon-md"></i>
                         </a>
                     </div>
@@ -310,10 +308,10 @@
 
     <!-- Main JS -->
 
-    <script src="{{ asset('assets/vendor/js/main.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 
     <!-- Page JS -->
-    <script src="{{ asset('assets/vendor/js/dashboards-analytics.js') }}"></script>
+    <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
 
     <!-- Place this tag before closing body tag for github widget button. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
